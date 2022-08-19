@@ -1,5 +1,13 @@
-$MacAddresses = Get-Content -path  .\macs.txt | Select-String -Pattern ':([\w]){2,2}\w'
-$MacAddresses
+$MacAddress = Get-Content -path  .\macs.txt | Select-String -Pattern '([\w]){4,4}'
 
-$result = $MacAddresses.Matches.groups[0].value
-$result
+$MacAddress 
+
+
+$Result0 = $MacAddress.Matches.groups[0].value
+#$Result1 = $MacAddress.Matches.Groups[1].Value
+
+$Result0
+#$Result1
+
+
+#:([\w]){1,2}
