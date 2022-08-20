@@ -13,14 +13,12 @@ choco install chocolateygui googlechrome lastpass grammarly winrar python3 trees
 
 
 # Install Themes
-$Themes = Get-ChildItem -Path "\\10.0.255.25\e\!_Art\Themes for Windows" -Filter *.themepack |
-$Themes
-<#
+Get-ChildItem -Path "\\10.0.255.25\e\!_Art\Themes for Windows" -Filter *.themepack |
+
 ForEach-Object {
 
     #Do something with $_.FullName
     #Like Start-Process -FilePath “myprogram.exe” -WorkingDirectory “C:\Users\admin\testfolder\experiments”
-    Start-Process -FilePath $_.FullName -WorkingDirectory "C:\Users\joseph.young\Downloads\Themes for Windows\todo"
+    Start-Process -FilePath $_.FullName -WorkingDirectory "\\10.0.255.25\e\!_Art\Themes for Windows"
 
 }
-#>
