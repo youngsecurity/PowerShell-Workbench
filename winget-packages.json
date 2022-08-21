@@ -7,115 +7,28 @@
 			"Packages" : 
 			[
 				{
-					"PackageIdentifier" : "Bitwarden.Bitwarden"
-				},
-				{
-					"PackageIdentifier" : "SideQuestVR.SideQuest"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VisualStudio.2019.Community"
-				},
-				{
-					"PackageIdentifier" : "CyberPowerSystemsInc.PowerPanelPersonal"
-				},
-				{
-					"PackageIdentifier" : "CloudImperiumGames.RSILauncher"
-				},
-				{
-					"PackageIdentifier" : "Google.AndroidStudio"
-				},
-				{
-					"PackageIdentifier" : "Autodesk.DesktopApp"
-				},
-				{
-					"PackageIdentifier" : "Canonical.Ubuntu"
-				},
-				{
-					"PackageIdentifier" : "Discord.Discord"
-				},
-				{
-					"PackageIdentifier" : "Docker.DockerDesktop"
-				},
-				{
-					"PackageIdentifier" : "GeoGebra.CalculatorSuite"
-				},
-				{
-					"PackageIdentifier" : "GitHub.GitHubDesktop"
-				},
-				{
-					"PackageIdentifier" : "Git.Git"
-				},
-				{
-					"PackageIdentifier" : "GnuPG.GnuPG"
-				},
-				{
-					"PackageIdentifier" : "LogMeIn.GoToMeeting"
-				},
-				{
-					"PackageIdentifier" : "Google.Chrome"
-				},
-				{
-					"PackageIdentifier" : "Google.Chrome.Canary"
-				},
-				{
-					"PackageIdentifier" : "GnuPG.Gpg4win"
-				},
-				{
-					"PackageIdentifier" : "kalilinux.kalilinux"
-				},
-				{
-					"PackageIdentifier" : "CrystalRich.LockHunter"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.AzureStorageEmulator"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.Edge"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.EdgeWebView2Runtime"
-				},
-				{
 					"PackageIdentifier" : "Microsoft.WindowsTerminal"
 				},
 				{
-					"PackageIdentifier" : "Insecure.Nmap"
+					"PackageIdentifier" : "Microsoft.WindowsTerminal.Preview"
 				},
 				{
-					"PackageIdentifier" : "NoIP.DUC"
+					"PackageIdentifier" : "Microsoft.PowerShell"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.PowerShell.Preview"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VisualStudioCode"
 				},
 				{
 					"PackageIdentifier" : "Notepad++.Notepad++"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.Office"
+					"PackageIdentifier" : "Google.Chrome"
 				},
 				{
-					"PackageIdentifier" : "OBSProject.OBSStudio"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.OneDrive"
-				},
-				{
-					"PackageIdentifier" : "RoyalApps.RoyalTS"
-				},
-				{
-					"PackageIdentifier" : "Spotify.Spotify"
-				},
-				{
-					"PackageIdentifier" : "Valve.Steam"
-				},
-				{
-					"PackageIdentifier" : "Stride.Stride"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.Teams"
-				},
-				{
-					"PackageIdentifier" : "eliboa.TegraRcmGUI"
-				},
-				{
-					"PackageIdentifier" : "JAMSoftware.TreeSize.Free"
+					"PackageIdentifier" : "Google.Drive"
 				},
 				{
 					"PackageIdentifier" : "VideoLAN.VLC"
@@ -124,172 +37,25 @@
 					"PackageIdentifier" : "RARLab.WinRAR"
 				},
 				{
-					"PackageIdentifier" : "WiresharkFoundation.Wireshark"
-				},
-				{
 					"PackageIdentifier" : "Twilio.Authy"
 				},
 				{
-					"PackageIdentifier" : "Iconscout.Iconscout"
+					"PackageIdentifier" : "Git.Git"
 				},
 				{
-					"PackageIdentifier" : "JeffreyPfau.mGBA"
+					"PackageIdentifier" : "GitHub.GitHubDesktop"
 				},
 				{
 					"PackageIdentifier" : "qBittorrent.qBittorrent"
 				},
 				{
-					"PackageIdentifier" : "SlackTechnologies.Slack"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.PowerShell"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.AspNetCore.3_1"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VC++2013Redist-x64"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VC++2013Redist-x64"
-				},
-				{
-					"PackageIdentifier" : "Keybase.Keybase"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.5"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.3_1"
-				},
-				{
-					"PackageIdentifier" : "Hashicorp.Vagrant"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VC++2010Redist-x64"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VC++2008Redist-x86"
-				},
-				{
-					"PackageIdentifier" : "Keybase.Keybase"
-				},
-				{
-					"PackageIdentifier" : "Oracle.JavaRuntimeEnvironment"
-				},
-				{
-					"PackageIdentifier" : "Oracle.JavaRuntimeEnvironment"
-				},
-				{
-					"PackageIdentifier" : "clsid2.mpc-hc"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.WebDeploy"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VC++2015-2022Redist-x64"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VC++2012Redist-x86"
-				},
-				{
-					"PackageIdentifier" : "Bethesda.Launcher"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VC++2015-2019Redist-x86"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.PowerShell"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.WindowsSDK"
-				},
-				{
-					"PackageIdentifier" : "TheDocumentFoundation.LibreOffice"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.SDK.5"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VC++2008Redist-x64"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.SDK.3_1"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.WindowsPCHealthCheck"
-				},
-				{
-					"PackageIdentifier" : "Google.Drive"
-				},
-				{
-					"PackageIdentifier" : "GOG.Galaxy"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.Teams"
-				},
-				{
-					"PackageIdentifier" : "Mojang.MinecraftLauncher"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VisualStudioCode"
-				},
-				{
 					"PackageIdentifier" : "MoonlightGameStreamingProject.Moonlight"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VC++2008Redist-x86"
+					"PackageIdentifier" : "SlackTechnologies.Slack"
 				},
 				{
-					"PackageIdentifier" : "calibre.calibre"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.PowerShell"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VC++2013Redist-x86"
-				},
-				{
-					"PackageIdentifier" : "Google.Chrome"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.PowerShell.Preview"
-				},
-				{
-					"PackageIdentifier" : "Nvidia.GeForceExperience"
-				},
-				{
-					"PackageIdentifier" : "Nvidia.PhysX"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VC++2010Redist-x86"
-				},
-				{
-					"PackageIdentifier" : "EpicGames.EpicGamesLauncher"
-				},
-				{
-					"PackageIdentifier" : "UnityTechnologies.UnityHub"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.Runtime.3_1"
-				},
-				{
-					"PackageIdentifier" : "dokan-dev.Dokany"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VC++2012Redist-x64"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.AspNetCore.5"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.Runtime.3_1"
-				},
-				{
-					"PackageIdentifier" : "Grammarly.ForOffice"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VC++2013Redist-x86"
+					"PackageIdentifier" : "Discord.Discord"
 				}
 			],
 			"SourceDetails" : 
