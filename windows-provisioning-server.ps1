@@ -1,6 +1,9 @@
 # Step 5a: Set the location to the script working repository
 Set-Location -Path 'G:\My Drive\!_Work\Notes\PowerShell\'
 $PWD
+
+$computerName = Get-Content "\\carl\G:\My Drive\!_Work\Notes\"
+
 # Step 5b: Create a PowerShell session and use it for the duration of the script
 # Future use: Switch between file pull or user input from the CLI
 $PSSession = New-PSSession -ComputerName 10.0.255.23 #-Credential (Get-Credential)      #Enable credentials for production
