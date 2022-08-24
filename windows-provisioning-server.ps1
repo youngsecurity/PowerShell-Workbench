@@ -1,13 +1,16 @@
-# Step 5a: Set the location to the script working directory and repository
+# Step 5a: Set the location to the script working repository
 Set-Location -Path 'G:\My Drive\!_Work\Notes\PowerShell\'
 $PWD
 # Step 5b: Create a PowerShell session and use it for the duration of the script
+# Future use: Switch between file pull or user input from the CLI
 $PSSession = New-PSSession -ComputerName 10.0.255.23 #-Credential (Get-Credential)      #Enable credentials for production
 
 # Check for Admin privs
+# Future use: If not admin, then whoami and quit if not admin
 Invoke-Command -Session $PSSession -ScriptBlock { [Security.Principal.WindowsIdentity]::GetCurrent().Groups -contains 'S-1-5-32-544' }
 
 # Step 6: Check PowerShell Versions
+# Future use: Compare the installed version with the latest in Github and download the latest if not already installed
 Invoke-Command -Session $PSSession -ScriptBlock {Get-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\PowerShellCore\InstalledVersions\* -Name 'SemanticVersion'.SemanticVersion}
 #Invoke-Command -Session $PSSession -ScriptBlock {$PSVersionTable}
 
