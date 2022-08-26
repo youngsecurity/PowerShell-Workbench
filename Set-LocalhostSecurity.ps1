@@ -1,5 +1,4 @@
 # Steps required to run locally in order to enable and use PSRemoting
-
 # Step 1: Setup Windows Adv Firewall. Run the PowerShell Set-NetFirewallRule cmdlet locally on the remote system to enable File and Print Sharing on the Private Firewall Zone
 # Future use case: enable option to take user input and modify the zone and, or IP Scope.
 Set-NetFirewallRule -DisplayGroup "File And Printer Sharing" -Enabled True -Profile Private
