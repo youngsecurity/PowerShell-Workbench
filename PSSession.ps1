@@ -1,10 +1,6 @@
-# Create a PowerShell session and use it for the duration of the script
-# Future use: Switch between file pull or user input from the CLI
-$PSSession = New-PSSession -ComputerName 10.0.255.23 #-Credential (Get-Credential)      #Enable credentials for production
+$PSSession = New-PSSession -ComputerName 10.0.255.13 #-Credential (Get-Credential)
 
-Invoke-Command -Session $PSSession -ScriptBlock {
-    
-}
-
-# Teardown the session by removing it
+Invoke-Command -Session $PSSession -ScriptBlock { 
+    Get-WindowsOptionalFeature -Online -FeatureName *Hyper-v* | Where-Object { $_.State -eq "Enabled"  }
+ }
 Remove-PSSession -Session $PSSession
