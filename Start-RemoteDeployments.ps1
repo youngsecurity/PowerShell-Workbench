@@ -1,10 +1,10 @@
-# Step 5a: Set the location to the script working repository
-Set-Location -Path 'G:\My Drive\!_Work\Notes\PowerShell\'
-$PWD
-
 # Setup the file to import the list of hostanmes or IP addresses
 $computerName = Get-Content "G:\My Drive\!_Work\Notes\PowerShell\hostnames.txt"
 $computerName
+
+# Step 5a: Set the location to the script working repository
+Set-Location -Path 'G:\My Drive\!_Work\Notes\PowerShell\'
+$PWD
 
 # Step 5b: Create a PowerShell session and use it for the duration of the script
 # Future use: Switch between file pull or user input from the CLI
@@ -60,12 +60,7 @@ Invoke-Expression; Invoke-RestMethod -Method Get -URI https://raw.githubusercont
 Invoke-Expression; ./InstallWindowsAgent.ps1 -JumpCloudConnectKey "55f1f38910d7de9a6555fc16e3cb4bab64cff86d"    
 
 # Step 9: Ask to Install or Skip Optional Themes over the network
-Copy-Item -Path 'E:\!_Art\Themes for Windows\' -Recurse -Filter *.themepack -Destination '\\10.0.255.23\C$\Users\Public\Downloads\'
-Invoke-Command -Session $PSSession -ScriptBlock { Get-ChildItem -Path 'C:\Users\Public\Downloads\Themes for Windows\' -Filter *.themepack } |
-ForEach-Object {
-    # Do something with $_.FullName like Start-Process -FilePath “myprogram.exe” -WorkingDirectory “C:\Users\admin\testfolder\experiments”
-    Invoke-Command -Session $PSSession -ScriptBlock { Start-Process -FilePath $_.FullName -WorkingDirectory "C:\Users\Public\Downloads\Themes for Windows\" }
-    }
+.\Get-Themes.ps1
 
 # Step 10: Close the session by removing it 
 Remove-PSSession -Session $PSSession
