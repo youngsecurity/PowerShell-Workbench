@@ -6,6 +6,7 @@ $SetPsExecLocation = Set-Location -Path 'E:\!_Apps\!_Development Tools\Sysintern
 ForEach ($HostName in $HostNames){
     $SetPsExecLocation    
     #.\PsExec.exe \\$HostName -h -s powershell PSRemoting #check PSRemoting status
-    .\PsExec.exe \\$HostName -h -s powershell Enable-PSRemoting -Force
-    #.\PsExec.exe \\10.0.255.15 -h -s powershell Enable-PSRemoting -Force # Used for single host deployment
+    #.\PsExec.exe \\$HostName -h -s powershell Enable-PSRemoting -SkipNetworkProfileCheck -Force
+    .\PsExec.exe \\10.0.255.13 -h -s powershell Enable-PSRemoting -SkipNetworkProfileCheck -Force
 # Step 4b: Enable PSRemoting on\target if not already enabled
+}
