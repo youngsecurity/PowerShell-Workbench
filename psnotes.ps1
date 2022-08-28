@@ -13,6 +13,10 @@ Remove-PSSession -Session $PSSession
 # How To Download an MSI and save it to local storage for installation later
 Invoke-WebRequest -Uri "https://github.com/PowerShell/PowerShell/releases/download/v7.3.0-preview.7/PowerShell-7.3.0-preview.7-win-x64.msi" -OutFile ./PowerShell-7.3.0-preview.7-win-x64.msi
 
+
+#Get Windows Network Connection Profile and set them all to Private
+Get-NetConnectionProfile | Set-NetConnectionProfile -NetworkCategory Private
+
 # This hides the Taskbar search
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search -Name SearchBoxTaskbarMode -Value 0 -Type DWord -Force
 
