@@ -1,20 +1,17 @@
 
 # Create a PowerShell session and use it for the duration of the script
-# Future use: Switch between file pull or user input from the CLI
-$PSSession = New-PSSession -ComputerName 10.0.255.23 #-Credential (Get-Credential)      #Enable credentials for production
-# Used for running remote PowerShell commands in an open session
+./PSNotes-PSSession.ps1
+# Invoke-Command can be used for running remote PowerShell commands in an open session
 Invoke-Command -Session $PSSession -ScriptBlock {}
-
-# Used for running remote PowerShell commands on a single server or from a list of servers
+# Or for running remote PowerShell commands on a single server 
 Invoke-Command -ComputerName $computerName -ScriptBlock {}
-# Teardown the session by removing it
-Remove-PSSession -Session $PSSession
+# Or from a list of servers
+./PSNotes-PSSession.ps1 
 
 # How to download files with PowerShell
 .\PSNotes-downloading-files.ps1
 # How To Download an MSI and save it to local storage for installation later
 Invoke-WebRequest -Uri "https://github.com/PowerShell/PowerShell/releases/download/v7.3.0-preview.7/PowerShell-7.3.0-preview.7-win-x64.msi" -OutFile ./PowerShell-7.3.0-preview.7-win-x64.msi
-
 
 #Get Windows Network Connection Profile and set them all to Private
 Get-NetConnectionProfile | Set-NetConnectionProfile -NetworkCategory Private
