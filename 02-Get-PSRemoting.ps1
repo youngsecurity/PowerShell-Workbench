@@ -5,8 +5,9 @@ $SetPsExecLocation = Set-Location -Path 'E:\!_Apps\!_Development Tools\Sysintern
 # Step 4a: Set location for PsExec tool and check PSRemoting status on remote host
 ForEach ($HostName in $HostNames){
     $SetPsExecLocation    
-    #.\PsExec.exe \\$HostName -h -s powershell PSRemoting #check PSRemoting status
-    #.\PsExec.exe \\$HostName -h -s powershell Enable-PSRemoting -SkipNetworkProfileCheck -Force
-    .\PsExec.exe \\10.0.255.13 -h -s powershell Enable-PSRemoting -SkipNetworkProfileCheck -Force
+    #Test-WSMan -ComputerName $HostName
+    .\PsExec.exe \\$HostName -h -s powershell Get-Service WinRM
+    .\PsExec.exe \\$HostName -h -s powershell Enable-PSRemoting -SkipNetworkProfileCheck -Force
+    #.\PsExec.exe \\10.0.255.13 
 # Step 4b: Enable PSRemoting on\target if not already enabled
 }
