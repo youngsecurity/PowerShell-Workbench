@@ -8,6 +8,21 @@ Invoke-Command -ComputerName $computerName -ScriptBlock {}
 # Or from a list of servers
 ./PSNotes-PSSession.ps1 
 
+
+# Try, Catch, Finally (optional), The code below shows the syntax of the Try statement.
+<# try {
+    <statement list>
+}
+catch [[<error type>][',' <error type>]*]{
+    <statement list>
+}
+finally {
+    <statement list>
+} #>
+
+# Pipe out to Get-Member to find TypeName value of the Exception property and other methods and properties for objects
+$Error[0].Exception | Get-Member
+
 # How to download files with PowerShell
 .\PSNotes-downloading-files.ps1
 # How To Download an MSI and save it to local storage for installation later
@@ -19,11 +34,11 @@ Get-NetConnectionProfile | Set-NetConnectionProfile -NetworkCategory Private
 # This hides the Taskbar search
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search -Name SearchBoxTaskbarMode -Value 0 -Type DWord -Force
 
-# This enables Windows Dark Mode for Apps and System
+# This enables Windows 10/11 Dark Mode for Apps and System
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name SystemUsesLightTheme -Value 0
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Value 0
 
-# This enables Windows Light Mode for Apps and System
+# This enables Windows 10/11 Light Mode for Apps and System
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name SystemUsesLightTheme -Value 1
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Value 1
 

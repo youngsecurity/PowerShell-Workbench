@@ -3,13 +3,24 @@ $HostNames = Get-Content "G:\My Drive\!_Work\Notes\PowerShell\hostnames.txt"
 $SetPSLocation = Set-Location -Path "G:\My Drive\!_Work\Notes\PowerShell\"
 
 $SetPSLocation
-ForEach ($HostName in $HostNames){
-    
-    $PSSession = New-PSSession -ComputerName $HostName #-Credential (Get-Credential)
-    Invoke-Command -Session $PSSession -ScriptBlock { 
-        hostname
-        #Get-WindowsOptionalFeature -Online -FeatureName *Hyper-v* |
-        #    Where-Object { $_.State -eq "Enabled" }
+try {
+    ForEach ($HostName in $HostNames) {    
+        $PSSession = New-PSSession -ComputerName $HostName #-Credential (Get-Credential)
+        Invoke-Command -Session $PSSession -ScriptBlock { 
+            hostname
+            #Get-WindowsOptionalFeature -Online -FeatureName *Hyper-v* |
+            #    Where-Object { $_.State -eq "Enabled" }
         }    
+    }    
 }
-Remove-PSSession -Session $PSSession
+catch {
+    <#Do this if a terminating exception happens#>
+    Write-Host "An Error Occured" -ForegroundColor Red
+    Write-Host $PSItem.Exception.Message -ForegroundColor Red
+}
+finally {
+    <#Do this after the try block regardless of whether an exception occurred or not#>
+    $Error.Clear()
+    Remove-PSSession -Session $PSSession
+}
+
