@@ -10,7 +10,7 @@ try {
             hostname
             #Get-WindowsOptionalFeature -Online -FeatureName *Hyper-v* |
             #    Where-Object { $_.State -eq "Enabled" }
-        }    
+        } -ErrorAction Stop    
     }    
 }
 catch {
