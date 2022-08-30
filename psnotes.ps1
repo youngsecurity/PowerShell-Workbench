@@ -10,6 +10,8 @@ Invoke-Command -ComputerName $computerName -ScriptBlock {}
 # Teardown the session by removing it
 Remove-PSSession -Session $PSSession
 
+# How to download files with PowerShell
+.\PSNotes-downloading-files.ps1
 # How To Download an MSI and save it to local storage for installation later
 Invoke-WebRequest -Uri "https://github.com/PowerShell/PowerShell/releases/download/v7.3.0-preview.7/PowerShell-7.3.0-preview.7-win-x64.msi" -OutFile ./PowerShell-7.3.0-preview.7-win-x64.msi
 
