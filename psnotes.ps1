@@ -8,10 +8,19 @@ Invoke-Command -ComputerName $computerName -ScriptBlock {}
 # Or from a list of servers
 ./PSNotes-PSSession.ps1 
 
+# How to accept username and password from the CLI securely
+$adminUser = Read-Host -Prompt "Enter the Administrator username" -AsSecureString
+$adminPassword = Read-Host -Prompt "Enter the Administrator password" -AsSecureString
+$adminUser
+$adminPassword
+
+# How to test if a path exists
+Test-Path -Path 'C:\Foo'
+
 
 # Try, Catch, Finally (optional), The code below shows the syntax of the Try statement.
 <# try {
-    <statement list>
+    <statement list> -ErrorAction Stop 
 }
 catch [[<error type>][',' <error type>]*]{
     <statement list>
@@ -22,6 +31,9 @@ finally {
 
 # Pipe out to Get-Member to find TypeName value of the Exception property and other methods and properties for objects
 $Error[0].Exception | Get-Member
+
+# Run a remote PowerShell script on a remote system using PsExec
+psexec -s \\webserver Powershell -ExecutionPolicy Bypass -File \\192.168.0.3\scripts$\Get-CompInfo.ps1
 
 # How to download files with PowerShell
 .\PSNotes-downloading-files.ps1
