@@ -1,9 +1,10 @@
 # Declare the variable and content to import the list of hostanmes or IP addresses
-$HostNames = Get-Content "G:\My Drive\!_Work\Notes\PowerShell\hostnames.txt"
+#$HostNames = Get-Content "G:\My Drive\!_Work\Notes\PowerShell\hostnames.txt"
+$Hosts = Get-Content "G:\My Drive\!_Work\Notes\PowerShell\host.txt"
 $SetPsExecLocation = Set-Location -Path 'E:\!_Apps\!_Development Tools\SysinternalsSuite\'
 
 try {
-    ForEach ($HostName in $HostNames) {
+    ForEach ($HostName in $Hosts) {
         # Set location for PsExec tool
         $SetPsExecLocation    
         # Check PSRemoting status on remote host            
