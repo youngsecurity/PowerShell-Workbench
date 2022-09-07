@@ -26,8 +26,18 @@ try {
                         # Check the installed version of PowerShell
                         $PSCoreVersion = (Get-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\PowerShellCore\InstalledVersions\* -Name 'SemanticVersion').SemanticVersion
                         $PSCoreVersion
+                        try {
+                            
+                        }
+                        catch {
+                            <#Do this if a terminating exception happens#>
+                        }
+                        finally {
+                            <#Do this after the try block regardless of whether an exception occurred or not#>
+                        }
                         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
                         Invoke-Expression "& { $(Invoke-RestMethod 'https://aka.ms/install-powershell.ps1') } -AddExplorerContextMenu -EnablePSRemoting -Quiet -UseMSI"
+                        
                         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
                         Invoke-Expression "& { $(Invoke-RestMethod 'https://aka.ms/install-powershell.ps1') } -AddExplorerContextMenu -EnablePSRemoting -Preview -Quiet -UseMSI"
                     }
