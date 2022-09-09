@@ -1,3 +1,4 @@
+# Must be run from Windows Host connected to Google Drive
 # Set the location to the script working repository
 Set-Location -Path 'G:\My Drive\!_Work\Notes\PowerShell\'
 # Declare the variable for the file to import the list of hostanmes or IP addresses
