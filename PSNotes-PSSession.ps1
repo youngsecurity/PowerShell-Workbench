@@ -9,17 +9,9 @@ try {
                 hostname
                 # Declare the variable for the remote file path for copying temp data, need to come back and clean this up
                 $remoteFilePath = "\\$Hostname\C$\Users\Public\Downloads\"
-                #$remoteFile = "\\$Hostname\C$\Users\Public\Downloads\winget-packages.json"    
-                # Install Media Player(s) 
-                #Set-Location -Path 'C:\Users\Public\Downloads'
-                #Invoke-WebRequest -Uri "https://github.com/mpc-hc/mpc-hc/releases/download/1.7.13/MPC-HC.1.7.13.x64.exe" -OutFile ".\MPC-HC.1.7.13.x64.exe"
-                #Start-Process -FilePath ".\MPC-HC.1.7.13.x64.exe" -Verb runAs -ArgumentList '/SP','/VERYSILENT','/NORESTART'
+                #$remoteFile = "\\$Hostname\C$\Users\Public\Downloads\winget-packages.json"
                 #
-                #
-                # Step 8a: Install Choco and more apps from an elevated PowerShell session                                                             
-                Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-                choco install -y chocolateygui googlechrome lastpass grammarly winrar python3 treesizefree               
-                # Step 8b: Install more apps using winget and a import file             
+                # Install more apps using winget and a import file             
                 Test-Path -Path C:\Users\Public\Downloads\winget-packages.json # Should return False            
                 Copy-Item -Path .\winget-packages.json -Destination $remoteFilePath -ToSession $PSSession
                 Test-Path -Path C:\Users\Public\Downloads\winget-packages.json # Should now return True

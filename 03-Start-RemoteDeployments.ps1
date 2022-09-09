@@ -71,7 +71,3 @@ finally {
     Remove-PSSession -Session $PSSession
 }
 
-# Step 9: Ask to Install or Skip Optional Themes over the network
-#.\Get-Themes.ps1
-
-
