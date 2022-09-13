@@ -5,8 +5,6 @@ Set-Location -Path 'G:\My Drive\!_Work\Notes\PowerShell-Workbench\'
 $HostNames = Get-Content "G:\My Drive\!_Work\Notes\PowerShell-Workbench\hostnames.txt"
 $AdminPrivs = [Security.Principal.WindowsIdentity]::GetCurrent().Groups -contains 'S-1-5-32-544'
 
-# Future use: If not admin, then whoami and quit if not admin            
-
 Write-Host "Reading hostnames..." -ForegroundColor Red
 try {
     ForEach ($HostName in $HostNames) {
@@ -38,10 +36,7 @@ try {
                         try {
                             winget upgrade
                             winget source update
-                            winget install Microsoft.PowerShell
-                            #winget install Microsoft.PowerShell.Preview
-                            #[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-                            #Invoke-Expression "& { $(Invoke-RestMethod 'https://aka.ms/install-powershell.ps1') } -AddExplorerContextMenu -EnablePSRemoting -Quiet -UseMSI"                            
+                            winget install Microsoft.PowerShell                            
                         }
                         catch {
                             Write-Host "An Error Occured" -ForegroundColor Red
@@ -72,16 +67,13 @@ try {
                     else {
                         Write-Host "You do not have the latest PowerShell Core 7 Preview installed." -ForegroundColor Red                        
                         try {                            
-                            winget install Microsoft.PowerShell.Preview
-                            #[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-                            #Invoke-Expression "& { $(Invoke-RestMethod 'https://aka.ms/install-powershell.ps1') } -AddExplorerContextMenu -EnablePSRemoting -Quiet -UseMSI"                            
+                            winget install Microsoft.PowerShell.Preview                            
                         }
                         catch {
                             Write-Host "An Error Occured" -ForegroundColor Red
                             Write-Host $PSItem.Exception.Message -ForegroundColor Red
                         }
-                        finally {
-                            #$PSCoreVersion = (Get-ItemPropertyValue -Path HKLM:\SOFTWARE\Microsoft\PowerShellCore\InstalledVersions\* -Name 'SemanticVersion')#.SemanticVersion                    
+                        finally {                            
                             Write-Host "You should now have both PowerShell Core Versions" $PSCoreVersion
                             Write-Host "Finished Installing PowerShell 7 Core"
                         }                    
