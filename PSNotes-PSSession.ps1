@@ -6,8 +6,11 @@ try {
         Invoke-Command -Session $PSSession -ScriptBlock { # some code            
             Write-Host `r
             Write-Host "hostname:" (hostname)
-            Write-Host "whoami:" (whoami) 
-        } -ErrorAction Continue # Error handling
+            Write-Host "whoami:" (whoami)
+            
+            Get-PSDrive 
+            
+        } -ErrorAction Stop # Error handling
     }    
 }
 catch {    
