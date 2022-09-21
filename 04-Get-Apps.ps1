@@ -12,7 +12,7 @@ try {
             Write-Host `r
             Write-Host "hostname:" (hostname)
             Write-Host "whoami:" (whoami)                                   
-            # Install more apps using winget and a import file            
+            # Install more apps using winget and a import file
             Write-Host "Check if winget-packages.json exists (should return true)"
             Test-Path -Path "C:\Users\Public\Downloads\winget-packages.json"
             Set-Location -Path "C:\Users\Public\Downloads\" | winget import --import-file .\winget-packages.json --accept-package-agreements    # Install one or more apps using an import file

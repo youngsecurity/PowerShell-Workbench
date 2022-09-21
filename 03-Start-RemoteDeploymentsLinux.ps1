@@ -13,8 +13,8 @@ network:
   version: 2
   renderer: networkd
   ethernets:
-    eth0: #Edit this line according to your network interface name
-      dhcp4: no
+    eth0: # Edit this line according to your network interface name
+      dhcp4: no # This disable DHCP
       addresses:
         - 192.168.1.10/24
       gateway4: 192.168.1.1
@@ -22,3 +22,6 @@ network:
         addresses:
           - 8.8.8.8
           - 8.8.4.4
+# Step 4: Save the file and run the following command
+sudo netplan apply
+
