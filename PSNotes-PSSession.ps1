@@ -6,13 +6,14 @@ try {
         Invoke-Command -Session $PSSession -ScriptBlock { # some code            
             Write-Host `r
             Write-Host "hostname:" (hostname)
-            Write-Host "whoami:" (whoami)
-                        
+            Write-Host "whoami:" (whoami)                       
+            
             #winget upgrade --accept-source-agreements --include-unknown
+            winget upgrade --accept-source-agreements --include-unknown --all
             #winget upgrade --accept-source-agreements --accept-package-agreements --id SlackTechnologies.Slack
             #winget upgrade --accept-source-agreements --accept-package-agreements --id Notepad++.Notepad++
             #winget upgrade --accept-source-agreements --accept-package-agreements --id MoonlightGameStreamingProject.Moonlight
-            #winget install Microsoft.PowerToys
+            #winget upgrade --accept-source-agreements --accept-package-agreements --id Microsoft.PowerToys
             
             # Do not upgrade these apps
             #RoyalApps.RoyalTS
