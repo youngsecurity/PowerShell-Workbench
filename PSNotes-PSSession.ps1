@@ -10,7 +10,7 @@ try {
             
             # Upgrade already installed apps
             #winget upgrade --accept-source-agreements --include-unknown
-            winget upgrade --accept-source-agreements --accept-package-agreements --include-unknown --all
+            winget upgrade --accept-source-agreements --include-unknown --all
             #winget upgrade --accept-source-agreements --accept-package-agreements --id SlackTechnologies.Slack
             #winget upgrade --accept-source-agreements --accept-package-agreements --id Notepad++.Notepad++
             #winget upgrade --accept-source-agreements --accept-package-agreements --id MoonlightGameStreamingProject.Moonlight
@@ -22,7 +22,7 @@ try {
             # Install apps if they are not already installed
             #winget install -e --silent --accept-source-agreements --accept-package-agreements --id clsid2.mpc-hc
             
-        } -ErrorAction Stop # Error handling
+        } -ErrorAction Continue # Error handling
     }    
 }
 catch {    
