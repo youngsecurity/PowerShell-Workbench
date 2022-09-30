@@ -8,8 +8,9 @@ try {
             Write-Host "hostname:" (hostname)
             Write-Host "whoami:" (whoami)                       
             
+            # Upgrade already installed apps
             #winget upgrade --accept-source-agreements --include-unknown
-            winget upgrade --accept-source-agreements --include-unknown --all
+            winget upgrade --accept-source-agreements --accept-package-agreements --include-unknown --all
             #winget upgrade --accept-source-agreements --accept-package-agreements --id SlackTechnologies.Slack
             #winget upgrade --accept-source-agreements --accept-package-agreements --id Notepad++.Notepad++
             #winget upgrade --accept-source-agreements --accept-package-agreements --id MoonlightGameStreamingProject.Moonlight
@@ -17,6 +18,8 @@ try {
             
             # Do not upgrade these apps
             #RoyalApps.RoyalTS
+
+            # Install apps if they are not already installed
             #winget install -e --silent --accept-source-agreements --accept-package-agreements --id clsid2.mpc-hc
             
         } -ErrorAction Stop # Error handling
