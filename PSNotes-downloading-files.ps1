@@ -42,3 +42,10 @@ Start-BitsTransfer -Source $url -Destination $dest
 # Install MSI using PowerShell
 Start-Process .\PowerShell-7.3.0-preview.7-win-x64.msi -ArgumentList "/quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ENABLE_PSREMOTING=1 REGISER_MANIFEST=1 /passive"
 
+#####################################################
+### Install PowerShell from Web, using PowerShell ###
+#####################################################
+# Stable
+run Invoke-Expression "& { $(Invoke-RestMethod https://aka.ms/install-powershell.ps1) } -UseMSI"
+# Preview
+run Invoke-Expression "& { $(Invoke-RestMethod https://aka.ms/install-powershell.ps1) } -UseMSI -Preview"
