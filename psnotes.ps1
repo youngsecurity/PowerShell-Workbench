@@ -52,7 +52,7 @@ Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Pe
 #Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ #not complete
 
 #
-# PowerShell Command Cheat Sheet
+# From the PowerShell Command Cheat Sheet
 #
 # Try, Catch, Finally (optional), The code below shows the syntax of the Try statement.
 <#try {
@@ -73,3 +73,20 @@ $Error[0].Exception | Get-Member
 
 # How To Download an MSI and save it to local storage for installation later
 Invoke-WebRequest -Uri "https://github.com/PowerShell/PowerShell/releases/download/v7.3.0-preview.7/PowerShell-7.3.0-preview.7-win-x64.msi" -OutFile ./PowerShell-7.3.0-preview.7-win-x64.msi
+
+#
+# Appx: How to import the module
+#
+# The Appx module is not supported on certain platforms. Attempting to use the module generates the following error: [Operation is not supported on this platform. (0x80131539)]
+# To get the Appx module to load successfully, it is required to use the "-UseWindowsPowerShell" parameter
+Import-Module Appx -UseWindowsPowerShell
+# Loading the Appxmodule this way will return the following warning: WARNING: Module Appx is loaded in Windows PowerShell using WinPSCompatSession remoting session; please note that all input and output of commands from this module will be deserialized objects. If you want to load this module into PowerShell please use 'Import-Module -SkipEditionCheck' syntax.
+# Import-Module Appx -SkipEditionCheck will also return the following error: [Operation is not supported on this platform. (0x80131539)]
+#
+# Appx: How to Get-AppxPackage
+Get-AppxPackage Microsoft.GamingServices
+Get-AppxPackage Microsoft.XboxApp
+# Appx: How to Remove-AppxPackage
+Get-AppxPackage Microsoft.GamingServices | Remove-AppxPackage
+Get-AppxPackage Microsoft.XboxApp | Remove-AppxPackage
+
