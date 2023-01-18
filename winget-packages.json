@@ -5,62 +5,62 @@
 	[
 		{
 			"Packages" : 
-			[
-				{
-					"PackageIdentifier" : "Microsoft.WindowsTerminal"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.WindowsTerminal.Preview"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.PowerShell"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.PowerShell.Preview"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VisualStudioCode"
-				},
-				{
-					"PackageIdentifier" : "Notepad++.Notepad++"
-				},
-				{
-					"PackageIdentifier" : "Google.Chrome"
-				},
-				{
-					"PackageIdentifier" : "Google.Drive"
-				},
-				{
-					"PackageIdentifier" : "VideoLAN.VLC"
-				},
-				{
-					"PackageIdentifier" : "clsid2.mpc-hc"
-				},
-				{
-					"PackageIdentifier" : "RARLab.WinRAR"
-				},
-				{
-					"PackageIdentifier" : "Twilio.Authy"
-				},
-				{
-					"PackageIdentifier" : "Git.Git"
-				},
-				{
-					"PackageIdentifier" : "GitHub.GitHubDesktop"
-				},
-				{
-					"PackageIdentifier" : "qBittorrent.qBittorrent"
-				},
-				{
-					"PackageIdentifier" : "MoonlightGameStreamingProject.Moonlight"
-				},
-				{
-					"PackageIdentifier" : "SlackTechnologies.Slack"
-				},
-				{
-					"PackageIdentifier" : "Discord.Discord"
-				}
-			],
+[
+    {
+        "PackageIdentifier": "clsid2.mpc-hc"
+    },
+    {
+        "PackageIdentifier": "Discord.Discord"
+    },
+    {
+        "PackageIdentifier": "Git.Git"
+    },
+    {
+        "PackageIdentifier": "GitHub.GitHubDesktop"
+    },
+    {
+        "PackageIdentifier": "Google.Chrome"
+    },
+    {
+        "PackageIdentifier": "Google.Drive"
+    },
+    {
+        "PackageIdentifier": "Microsoft.PowerShell"
+    },
+    {
+        "PackageIdentifier": "Microsoft.PowerShell.Preview"
+    },
+    {
+        "PackageIdentifier": "Microsoft.VisualStudioCode"
+    },
+    {
+        "PackageIdentifier": "Microsoft.WindowsTerminal"
+    },
+    {
+        "PackageIdentifier": "Microsoft.WindowsTerminal.Preview"
+    },
+    {
+        "PackageIdentifier": "MoonlightGameStreamingProject.Moonlight"
+    },
+    {
+        "PackageIdentifier": "Notepad++.Notepad++"
+    },
+    {
+        "PackageIdentifier": "qBittorrent.qBittorrent"
+    },
+    {
+        "PackageIdentifier": "RARLab.WinRAR"
+    },
+    {
+        "PackageIdentifier": "SlackTechnologies.Slack"
+    },
+    {
+        "PackageIdentifier": "Twilio.Authy"
+    },
+    {
+        "PackageIdentifier": "VideoLAN.VLC"
+    }
+],
 			"SourceDetails" : 
 			{
 				"Argument" : "https://cdn.winget.microsoft.com/cache",

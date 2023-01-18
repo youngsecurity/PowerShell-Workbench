@@ -1,0 +1,444 @@
+{
+	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
+	"CreationDate" : "2022-12-20T12:42:49.804-00:00",
+	"Sources" : 
+	[
+		{
+			"Packages" : 
+						[
+				{
+					"PackageIdentifier": "Axosoft.GitKraken",
+					"Version": "9.0.0"
+				},
+				{
+					"PackageIdentifier": "Bethesda.Launcher",
+					"Version": "1.84.0"
+				},
+				{
+					"PackageIdentifier": "Bitwarden.Bitwarden",
+					"Version": "2022.12.0"
+				},
+				{
+					"PackageIdentifier": "calibre.calibre",
+					"Version": "6.10.0"
+				},
+				{
+					"PackageIdentifier": "Canonical.Ubuntu",
+					"Version": "2004.2022.1.0"
+				},
+				{
+					"PackageIdentifier": "Chocolatey.ChocolateyGUI",
+					"Version": "1.1.0.0"
+				},
+				{
+					"PackageIdentifier": "CloudImperiumGames.RSILauncher",
+					"Version": "1.6.1"
+				},
+				{
+					"PackageIdentifier": "clsid2.mpc-hc",
+					"Version": "1.9.24"
+				},
+				{
+					"PackageIdentifier": "CrystalRich.LockHunter",
+					"Version": "3.4.3.146"
+				},
+				{
+					"PackageIdentifier": "CyberPowerSystemsInc.PowerPanelPersonal",
+					"Version": "2.3.4"
+				},
+				{
+					"PackageIdentifier": "DigitalExtremes.Warframe",
+					"Version": "Unknown"
+				},
+				{
+					"PackageIdentifier": "Discord.Discord",
+					"Version": "1.0.9008"
+				},
+				{
+					"PackageIdentifier": "Docker.DockerDesktop",
+					"Version": "4.15.0"
+				},
+				{
+					"PackageIdentifier": "dokan-dev.Dokany",
+					"Version": "1.4.0.1000"
+				},
+				{
+					"PackageIdentifier": "EclipseAdoptium.Temurin.8.JDK",
+					"Version": "8.0.302.8"
+				},
+				{
+					"PackageIdentifier": "eliboa.TegraRcmGUI",
+					"Version": "2.6.0"
+				},
+				{
+					"PackageIdentifier": "EpicGames.EpicGamesLauncher",
+					"Version": "1.3.23.0"
+				},
+				{
+					"PackageIdentifier": "Facebook.Messenger",
+					"Version": "172.0.427436225"
+				},
+				{
+					"PackageIdentifier": "Git.Git",
+					"Version": "2.39.0"
+				},
+				{
+					"PackageIdentifier": "GitHub.GitHubDesktop",
+					"Version": "3.1.2"
+				},
+				{
+					"PackageIdentifier": "GnuPG.GnuPG",
+					"Version": "2.3.8"
+				},
+				{
+					"PackageIdentifier": "GnuPG.Gpg4win",
+					"Version": "4.0.4"
+				},
+				{
+					"PackageIdentifier": "GOG.Galaxy",
+					"Version": "Unknown"
+				},
+				{
+					"PackageIdentifier": "Google.AndroidStudio",
+					"Version": "2021.3.1.17"
+				},
+				{
+					"PackageIdentifier": "Google.Chrome",
+					"Version": "108.0.5359.125"
+				},
+				{
+					"PackageIdentifier": "Google.Chrome",
+					"Version": "108.0.5359.125"
+				},
+				{
+					"PackageIdentifier": "Google.Chrome.Canary",
+					"Version": "111.0.5488.0"
+				},
+				{
+					"PackageIdentifier": "Google.Drive",
+					"Version": "68.0.2.0"
+				},
+				{
+					"PackageIdentifier": "Grammarly.Grammarly.Office",
+					"Version": "6.8.263"
+				},
+				{
+					"PackageIdentifier": "Hashicorp.Vagrant",
+					"Version": "2.3.0"
+				},
+				{
+					"PackageIdentifier": "Iconscout.Iconscout",
+					"Version": "1.0.1"
+				},
+				{
+					"PackageIdentifier": "Insecure.Nmap",
+					"Version": "7.92"
+				},
+				{
+					"PackageIdentifier": "JAMSoftware.TreeSize.Free",
+					"Version": "4.6.2"
+				},
+				{
+					"PackageIdentifier": "JeffreyPfau.mGBA",
+					"Version": "0.10.0"
+				},
+				{
+					"PackageIdentifier": "kalilinux.kalilinux",
+					"Version": "1.13.1.0"
+				},
+				{
+					"PackageIdentifier": "Keybase.Keybase",
+					"Version": "5.7.0.15"
+				},
+				{
+					"PackageIdentifier": "Keybase.Keybase",
+					"Version": "6.1.0.4"
+				},
+				{
+					"PackageIdentifier": "LogMeIn.GoToMeeting",
+					"Version": "10.19.0.19950"
+				},
+				{
+					"PackageIdentifier": "Microsoft.AzureStorageEmulator",
+					"Version": "5.10.19227.2113"
+				},
+				{
+					"PackageIdentifier": "Microsoft.DotNet.AspNetCore.3_1",
+					"Version": "3.1.32"
+				},
+				{
+					"PackageIdentifier": "Microsoft.DotNet.AspNetCore.3_1",
+					"Version": "3.1.32"
+				},
+				{
+					"PackageIdentifier": "Microsoft.DotNet.AspNetCore.5",
+					"Version": "5.0.17"
+				},
+				{
+					"PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.3_1",
+					"Version": "3.1.32"
+				},
+				{
+					"PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.5",
+					"Version": "5.0.17"
+				},
+				{
+					"PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.6",
+					"Version": "6.0.12"
+				},
+				{
+					"PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.7",
+					"Version": "7.0.1"
+				},
+				{
+					"PackageIdentifier": "Microsoft.DotNet.Runtime.3_1",
+					"Version": "< 3.1.25"
+				},
+				{
+					"PackageIdentifier": "Microsoft.DotNet.Runtime.3_1",
+					"Version": "3.1.32"
+				},
+				{
+					"PackageIdentifier": "Microsoft.DotNet.SDK.3_1",
+					"Version": "3.1.426"
+				},
+				{
+					"PackageIdentifier": "Microsoft.DotNet.SDK.5",
+					"Version": "5.0.408"
+				},
+				{
+					"PackageIdentifier": "Microsoft.Edge",
+					"Version": "108.0.1462.54"
+				},
+				{
+					"PackageIdentifier": "Microsoft.EdgeWebView2Runtime",
+					"Version": "108.0.1462.54"
+				},
+				{
+					"PackageIdentifier": "Microsoft.Office",
+					"Version": "16.0.15726.20262"
+				},
+				{
+					"PackageIdentifier": "Microsoft.OneDrive",
+					"Version": "22.238.1114.0002"
+				},
+				{
+					"PackageIdentifier": "Microsoft.PowerShell.Preview",
+					"Version": "> 7.3.8.0"
+				},
+				{
+					"PackageIdentifier": "Microsoft.PowerToys",
+					"Version": "0.65.0"
+				},
+				{
+					"PackageIdentifier": "Microsoft.Teams",
+					"Version": "1.5.00.33362"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2005.x86",
+					"Version": "8.0.61001"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2008.x64",
+					"Version": "9.0.30729.6161"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2008.x86",
+					"Version": "9.0.30729.4148"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2008.x86",
+					"Version": "9.0.30729.6161"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2010.x64",
+					"Version": "10.0.40219"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2010.x86",
+					"Version": "10.0.40219"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2012.x64",
+					"Version": "11.0.61030.0"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2012.x86",
+					"Version": "11.0.61030.0"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2013.x64",
+					"Version": "12.0.30501.0"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2013.x64",
+					"Version": "12.0.40664.0"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2013.x86",
+					"Version": "12.0.30501.0"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2013.x86",
+					"Version": "12.0.40664.0"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2015+.x64",
+					"Version": "14.34.31823.3"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2015+.x86",
+					"Version": "14.34.31823.3"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VisualStudio.2019.Community",
+					"Version": "16.11.21"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VisualStudioCode",
+					"Version": "1.74.1"
+				},
+				{
+					"PackageIdentifier": "Microsoft.WebDeploy",
+					"Version": "10.0.5923"
+				},
+				{
+					"PackageIdentifier": "Microsoft.WindowsPCHealthCheck",
+					"Version": "3.6.2204.08001"
+				},
+				{
+					"PackageIdentifier": "Microsoft.WindowsSDK",
+					"Version": "< 10.0.22000.832"
+				},
+				{
+					"PackageIdentifier": "Microsoft.WindowsSDK",
+					"Version": "10.0.22621.1"
+				},
+				{
+					"PackageIdentifier": "Microsoft.WindowsTerminal",
+					"Version": "1.15.2874.0"
+				},
+				{
+					"PackageIdentifier": "Mojang.MinecraftLauncher",
+					"Version": "2.0.0.0"
+				},
+				{
+					"PackageIdentifier": "MoonlightGameStreamingProject.Moonlight",
+					"Version": "4.3.1.0"
+				},
+				{
+					"PackageIdentifier": "Mozilla.Firefox",
+					"Version": "108.0.1"
+				},
+				{
+					"PackageIdentifier": "NitroSoftware.NitroPro",
+					"Version": "13.58.0.1180"
+				},
+				{
+					"PackageIdentifier": "NoIP.DUC",
+					"Version": "4.1.1"
+				},
+				{
+					"PackageIdentifier": "Notepad++.Notepad++",
+					"Version": "8.4.7"
+				},
+				{
+					"PackageIdentifier": "Nvidia.GeForceExperience",
+					"Version": "3.26.0.154"
+				},
+				{
+					"PackageIdentifier": "Nvidia.PhysX",
+					"Version": "9.21.0713"
+				},
+				{
+					"PackageIdentifier": "OBSProject.OBSStudio",
+					"Version": "28.1.2"
+				},
+				{
+					"PackageIdentifier": "Oracle.JavaRuntimeEnvironment",
+					"Version": "8.0.3330.2"
+				},
+				{
+					"PackageIdentifier": "Python.Python.3.9",
+					"Version": "3.9.13"
+				},
+				{
+					"PackageIdentifier": "qBittorrent.qBittorrent",
+					"Version": "4.5.0"
+				},
+				{
+					"PackageIdentifier": "RoyalApps.RoyalTS",
+					"Version": "5.03.61012.0"
+				},
+				{
+					"PackageIdentifier": "SideQuestVR.SideQuest",
+					"Version": "0.10.33"
+				},
+				{
+					"PackageIdentifier": "SlackTechnologies.Slack",
+					"Version": "4.29.149"
+				},
+				{
+					"PackageIdentifier": "Splashtop.SplashtopPersonal",
+					"Version": "3.5.2.3"
+				},
+				{
+					"PackageIdentifier": "Splashtop.SplashtopStreamer.Deployment.MSI",
+					"Version": "3.5.2.3"
+				},
+				{
+					"PackageIdentifier": "Spotify.Spotify",
+					"Version": "1.2.0.1165.gabf054ab"
+				},
+				{
+					"PackageIdentifier": "Stride.Stride",
+					"Version": "5.0.6"
+				},
+				{
+					"PackageIdentifier": "TheDocumentFoundation.LibreOffice",
+					"Version": "7.4.2.3"
+				},
+				{
+					"PackageIdentifier": "Twilio.Authy",
+					"Version": "2.2.1"
+				},
+				{
+					"PackageIdentifier": "Unity.UnityHub",
+					"Version": "3.3.0"
+				},
+				{
+					"PackageIdentifier": "Valve.Steam",
+					"Version": "2.10.91.91"
+				},
+				{
+					"PackageIdentifier": "VideoLAN.VLC",
+					"Version": "3.0.18"
+				},
+				{
+					"PackageIdentifier": "VirtualDesktop.Streamer",
+					"Version": "1.24.1"
+				},
+				{
+					"PackageIdentifier": "Windscribe.Windscribe",
+					"Version": "2.4.11"
+				},
+				{
+					"PackageIdentifier": "WiresharkFoundation.Wireshark",
+					"Version": "4.0.1"
+				},
+				{
+					"PackageIdentifier": "Zoom.Zoom",
+					"Version": "> 5.12.10137"
+				}
+			],
+			"SourceDetails" : 
+			{
+				"Argument" : "https://cdn.winget.microsoft.com/cache",
+				"Identifier" : "Microsoft.Winget.Source_8wekyb3d8bbwe",
+				"Name" : "winget",
+				"Type" : "Microsoft.PreIndexed.Package"
+			}
+		}
+	],
+	"WinGetVersion" : "1.3.2691"
+}
