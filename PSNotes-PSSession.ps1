@@ -16,44 +16,50 @@ try {
             #winget upgrade --accept-source-agreements --include-unknown --all
             
             # Upgrade individual apps
-            #winget upgrade --accept-source-agreements --id SlackTechnologies.Slack                        
-            #winget upgrade --accept-source-agreements --id Microsoft.PowerToys
-            winget upgrade --accept-source-agreements --id Bitwarden.Bitwarden
-            winget upgrade --accept-source-agreements --id SideQuestVR.SideQuest
-            winget upgrade --accept-source-agreements --id Microsoft.VisualStudio.2019.Community
-            winget upgrade --accept-source-agreements --id Google.AndroidStudio
-            winget upgrade --accept-source-agreements --id GeoGebra.CalculatorSuite
-            winget upgrade --accept-source-agreements --id GnuPG.GnuPG
-            winget upgrade --accept-source-agreements --id GnuPG.Gpg4win
-            winget upgrade --accept-source-agreements --id Notepad++.Notepad++
-            winget upgrade --accept-source-agreements --id OBSProject.OBSStudio
-            winget upgrade --accept-source-agreements --id Spotify.Spotify
-            winget upgrade --accept-source-agreements --id Stride.Stride
-            winget upgrade --accept-source-agreements --id JAMSoftware.TreeSize.Free
-            winget upgrade --accept-source-agreements --id WiresharkFoundation.Wireshark
-            winget upgrade --accept-source-agreements --id JeffreyPfau.mGBA
-            winget upgrade --accept-source-agreements --id Microsoft.VCRedist.2013.x64
-            winget upgrade --accept-source-agreements --id Keybase.Keybase
-            winget upgrade --accept-source-agreements --id Hashicorp.Vagrant            
-            winget upgrade --accept-source-agreements --id Oracle.JavaRuntimeEnvironment
-            winget upgrade --accept-source-agreements --id clsid2.mpc-hc
-            winget upgrade --accept-source-agreements --id Bethesda.Launcher
-            winget upgrade --accept-source-agreements --id Microsoft.VCRedist.2015+.x64
-            winget upgrade --accept-source-agreements --id Microsoft.VCRedist.2015+.x86
-            winget upgrade --accept-source-agreements --id Microsoft.WindowsSDK
-            winget upgrade --accept-source-agreements --id TheDocumentFoundation.LibreOffice
-            winget upgrade --accept-source-agreements --id Chocolatey.ChocolateyGUI
-            winget upgrade --accept-source-agreements --id Mojang.MinecraftLauncher
-            winget upgrade --accept-source-agreements --id MoonlightGameStreamingProject.Moonlight
-            winget upgrade --accept-source-agreements --id calibre.calibre
-            winget upgrade --accept-source-agreements --id Microsoft.PowerShell
-            winget upgrade --accept-source-agreements --id VirtualDesktop.Streamer
-            winget upgrade --accept-source-agreements --id EpicGames.EpicGamesLauncher
-            winget upgrade --accept-source-agreements --id Unity.UnityHub
-            winget upgrade --accept-source-agreements --id dokan-dev.Dokany
-            winget upgrade --accept-source-agreements --id Microsoft.DotNet.Runtime.3_1
-            winget upgrade --accept-source-agreements --id Grammarly.ForOffice
-            winget upgrade --accept-source-agreements --id Microsoft.VCRedist.2013.x86
+            winget upgrade --id SlackTechnologies.Slack                        
+            winget upgrade --id Microsoft.PowerToys
+            winget upgrade --id Bitwarden.Bitwarden
+            winget upgrade --id SideQuestVR.SideQuest
+            winget upgrade --id Microsoft.VisualStudio.2019.Community
+            winget upgrade --id Google.AndroidStudio
+            winget upgrade --id GeoGebra.CalculatorSuite
+            winget upgrade --id GnuPG.GnuPG
+            winget upgrade --id GnuPG.Gpg4win
+            winget upgrade --id Notepad++.Notepad++
+            winget upgrade --id OBSProject.OBSStudio
+            winget upgrade --id Spotify.Spotify
+            winget upgrade --id Stride.Stride
+            winget upgrade --id JAMSoftware.TreeSize.Free
+            winget upgrade --id WiresharkFoundation.Wireshark
+            winget upgrade --id JeffreyPfau.mGBA
+            winget upgrade --id Microsoft.VCRedist.2013.x64
+            winget upgrade --id Keybase.Keybase
+            winget upgrade --id Hashicorp.Vagrant            
+            winget upgrade --id Oracle.JavaRuntimeEnvironment
+            winget upgrade --id clsid2.mpc-hc
+            winget upgrade --id Bethesda.Launcher
+            winget upgrade --id Microsoft.VCRedist.2015+.x64
+            winget upgrade --id Microsoft.VCRedist.2015+.x86
+            winget upgrade --id Microsoft.WindowsSDK
+            winget upgrade --id TheDocumentFoundation.LibreOffice
+            winget upgrade --id Chocolatey.ChocolateyGUI
+            winget upgrade --id Mojang.MinecraftLauncher
+            winget upgrade --id MoonlightGameStreamingProject.Moonlight
+            winget upgrade --id calibre.calibre
+            winget upgrade --id Microsoft.PowerShell
+            winget upgrade --id VirtualDesktop.Streamer
+            winget upgrade --id EpicGames.EpicGamesLauncher
+            winget upgrade --id Unity.UnityHub
+            winget upgrade --id dokan-dev.Dokany
+            winget upgrade --id Microsoft.DotNet.Runtime.3_1
+            winget upgrade --id Grammarly.ForOffice
+            winget upgrade --id Microsoft.VCRedist.2013.x86
+            winget upgrade --id Docker.DockerDesktop
+            winget upgrade --id Mozilla.Firefox
+            winget upgrade --id JAMSoftware.TreeSize.Free
+            winget upgrade --id VideoLAN.VLC
+            winget upgrade --id Google.Chrome
+            winget upgrade --id Splashtop.SplashtopPersonal
 
             # Do not upgrade these apps
             #RoyalApps.RoyalTS
