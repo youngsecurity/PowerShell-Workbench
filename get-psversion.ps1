@@ -9,8 +9,22 @@
     Check the latest release and pre-release build
     .\get-psversion.ps1
 .EXAMPLE
-    Invoke this script directly from GitHub
-    Invoke-Expression "& { $(Invoke-RestMethod 'https://aka.ms/install-powershell.ps1') } -daily"
+    Invoke this script directly from a Private GitHub Repo
+    Invoke-Expression "& { $(Invoke-RestMethod 'https://raw.githubusercontent.com/$username/$repoName/master/$scriptPath') }"
+    $token = "YOUR_GITHUB_PERSONAL_ACCESS_TOKEN"
+    $username = "YOUR_GITHUB_USERNAME"
+    $repoName = "YOUR_PRIVATE_REPO_NAME"
+    $scriptPath = "PATH_TO_YOUR_SCRIPT_ON_GITHUB"
+
+    $headers = @{
+        "Authorization" = "token $token"
+    }
+
+    $rawUrl = "https://raw.githubusercontent.com/$username/$repoName/master/$scriptPath"
+
+    $scriptContent = Invoke-RestMethod -Uri $rawUrl -Headers $headers
+
+    Invoke-Expression -Command $scriptContent
 #>
 
 $currentVersion = $PSVersionTable.PSVersion.ToString()
