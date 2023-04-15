@@ -1,3 +1,4 @@
+Axosoft.GitKraken
 Bitwarden.Bitwarden
 Bethesda.Launcher
 calibre.calibre
@@ -5,9 +6,12 @@ clsid2.mpc-hc
 Discord.Discord
 EpicGames.EpicGamesLauncher
 GitHub.cli
+Google.Chrome
 Keybase.Keybase
+Microsoft.Office
 Microsoft.PowerShell
 Microsoft.PowerShell.Preview
+Microsoft.PowerToys
 Mozilla.Firefox
 OBSProject.OBSStudio
 Oracle.JavaRuntimeEnvironment
@@ -15,4 +19,5 @@ SideQuestVR.SideQuest
 Splashtop.SplashtopPersonal
 Spotify.Spotify
 TheDocumentFoundation.LibreOffice
+WiresharkFoundation.Wireshark
 Zoom.Zoom

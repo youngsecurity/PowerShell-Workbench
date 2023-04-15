@@ -4,7 +4,7 @@ $localFilePath = "G:\My Drive\!_Work\Notes\PowerShell-Workbench\winget-packages.
 try {
     ForEach ($HostName in $HostNames) {     
         $PSSession = New-PSSession -ComputerName $HostName #-Credential (Get-Credential)         
-        $localFilePath = "G:\My Drive\!_Work\Notes\PowerShell-Workbench\winget-packages.json" 
+        $localFilePath = ".\winget-packages.json" 
         $remoteFilePath = "\\$HostName\C$\Users\Public\Downloads\"
         Write-Host "Trying to copy winget-packages.json..."
         Copy-Item -Path $localFilePath -Destination $remoteFilePath        
