@@ -1,4 +1,4 @@
-Get-Content -Path "winget-packages.txt" | ForEach-Object {
+Get-Content -Path ".\src\maintenance\winget-packages.txt" | ForEach-Object {
     $update = $_
     try {
         winget upgrade --id $update
