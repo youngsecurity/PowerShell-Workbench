@@ -57,3 +57,24 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+#
+# Visual Studio Code gitignore Template
+#
+
+# Visual Studio Code configuration directory
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+# Visual Studio Code C++ Extension cache
+.dccache
