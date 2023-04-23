@@ -6,6 +6,7 @@ clsid2.mpc-hc
 Discord.Discord
 EpicGames.EpicGamesLauncher
 GitHub.cli
+GOG.Galaxy
 Google.Chrome
 Keybase.Keybase
 Microsoft.Office
@@ -24,6 +25,8 @@ Splashtop.SplashtopPersonal
 Spotify.Spotify
 TheDocumentFoundation.LibreOffice
 Ubisoft.Connect
+Unity.UnityHub
+DigitalExtremes.Warframe
 WhatsApp.WhatsApp
 WiresharkFoundation.Wireshark
 Zoom.Zoom
