@@ -1,5 +1,5 @@
-$HostNames = Get-Content "G:\My Drive\!_Work\Notes\PowerShell-Workbench\hostnames.txt"
-$localFilePath = "G:\My Drive\!_Work\Notes\PowerShell-Workbench\winget-packages.json"
+$HostNames = Get-Content ".\hostnames.txt"
+$localFilePath = ".\winget-packages.json"
 
 try {
     ForEach ($HostName in $HostNames) {     

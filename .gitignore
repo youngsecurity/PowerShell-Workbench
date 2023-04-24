@@ -2,6 +2,13 @@
 # Windows gitignore Tempalte
 #
 
+# Windows network files
+hostnames.csv
+hostnames.txt
+hosts.txt
+macs.txt
+modified-macs.txt
+
 # Windows thumbnail cache files
 Thumbs.db
 Thumbs.db:encryptable

@@ -1,5 +1,8 @@
 # Declare the variable and content to import the list of hostanmes or IP addresses
-$HostNames = Get-Content "G:\My Drive\!_Work\Notes\PowerShell\hostnames.txt"
+$filePath = Read-Host "Enter the file path containing hostnames"
+Write-Host "You entered the file path: $filePath"
+# Declare the variable and content to import the list of hostanmes or IP addresses
+$HostNames = Get-Content $filePath        
 
 ForEach ($HostName in $HostNames){
     # Step 9: Ask to Install or Skip Optional Themes over the network

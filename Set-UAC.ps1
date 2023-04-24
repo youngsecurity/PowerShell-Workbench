@@ -1,13 +1,13 @@
-
+$HostName = Read-Host "Enter a hostname"
 # Check the UAC configuration
-Invoke-Command -ComputerName oglethorpe -ScriptBlock {
+Invoke-Command -ComputerName $HostName -ScriptBlock {
     $path = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
     $filter="ConsentPromptBehaviorAdmin|ConsentPromptBehaviorUser|EnableInstallerDetection|EnableLUA|EnableVirtualization|PromptOnSecureDesktop|ValidateAdminCodeSignatures|FilterAdministratorToken"
     (Get-ItemProperty $path).psobject.properties | Where-Object {$_.name -match $filter} | Select-Object name,value
 }
 
 # Set the UAC Configuration to lowest, most permissive configuration
-Invoke-Command -ComputerName oglethorpe -ScriptBlock {
+Invoke-Command -ComputerName $HostName -ScriptBlock {
     $path = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
     New-ItemProperty -Path $path -Name 'ConsentPromptBehaviorAdmin' -Value 0 -PropertyType DWORD -Force | Out-Null
     New-ItemProperty -Path $path -Name 'ConsentPromptBehaviorUser' -Value 3 -PropertyType DWORD -Force | Out-Null
@@ -19,6 +19,6 @@ Invoke-Command -ComputerName oglethorpe -ScriptBlock {
     New-ItemProperty -Path $path -Name 'FilterAdministratorToken' -Value 0 -PropertyType DWORD -Force | Out-Null
 }
 
-Invoke-Command -ComputerName oglethorpe -ScriptBlock {
+Invoke-Command -ComputerName $HostName -ScriptBlock {
     Restart-Computer -Force
 }

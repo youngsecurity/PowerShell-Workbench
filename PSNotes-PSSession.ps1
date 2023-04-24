@@ -1,4 +1,4 @@
-$HostNames = Get-Content "G:\My Drive\!_Work\Notes\PowerShell-Workbench\hostnames.txt"
+$HostNames = Get-Content ".\hostnames.txt"
 
 try {
     ForEach ($HostName in $HostNames) {     
@@ -80,10 +80,8 @@ try {
             #RoyalApps.RoyalTS
             #winget install -e --silent --accept-source-agreements --accept-package-agreements --id clsid2.mpc-hc
             
-        } -ErrorAction Stop # Error handling
-
-    }    
-}
+    } -ErrorAction Stop # Error handling
+}    
 catch {    
     Write-Host "An Error Occured" -ForegroundColor Red
     Write-Host $PSItem.Exception.Message -ForegroundColor Red
