@@ -1,7 +1,7 @@
 # Copyright (c) Young Security Inc.
 # Licensed under the MIT License.
 <#
-.Synopsis
+.SYNOPSIS
     Get PowerShell Latest and Pre-release Version from GitHub for Windows, Linux or macOS.
 .DESCRIPTION
     By default, the latest available PowerShell release and pre-release package will be checked.    

@@ -1,9 +1,20 @@
-# .SCRIPT NAME: 02-Get-PSRemoting.ps1
-# .AUTHOR: Joseph Young <joe@youngsecurity.net>
-# .DATE: 04/24/2023
-# .DOCUMENTATION: 
-# .DESCRIPTION: This is script checks for WinRM remoting on a single host or a list of hosts
-# .EXAMPLE: ./02-Get-PSRemoting.ps1 <arguments>
+<#
+.NOTES
+    Script Name: 02-Get-PSRemoting.ps1
+    Author: Joseph Young <joe@youngsecurity.net>
+    Date: 4/26/2023
+    Copyright: (c) Young Security Inc.
+    Licensed: under the MIT License.
+
+.SYNOPSIS
+    Get PowerShell Latest and Pre-release Version from GitHub for Windows, Linux or macOS.
+    
+.DESCRIPTION
+    This is script checks for WinRM remoting on a single host or a list of hosts
+
+.EXAMPLE
+    .02-Get-PSRemoting.ps1 <arguments>    
+#>
 
 Write-Host "Please choose one of the following options:"
 Write-Host "1. Enter a single hostname"
