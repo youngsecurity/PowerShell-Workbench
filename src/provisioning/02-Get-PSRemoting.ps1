@@ -7,7 +7,9 @@
     Licensed: under the MIT License.
 
 .SYNOPSIS
-    Get PowerShell Latest and Pre-release Version from GitHub for Windows, Linux or macOS.
+    Prompt the user to select a single host or provide a file containing a list of hostnames.
+    Then use PsExec64.exe to get the status of the WinRM service.
+    If WinRM status != "running", then the script will attempt to enable PSRemoting.
     
 .DESCRIPTION
     This is script checks for WinRM remoting on a single host or a list of hosts

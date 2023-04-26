@@ -1,3 +1,20 @@
+<#
+.NOTES
+    Script Name: 02-Get-PSRemoting.ps1
+    Author: Joseph Young <joe@youngsecurity.net>
+    Date: 4/26/2023
+    Copyright: (c) Young Security Inc.
+    Licensed: under the MIT License.
+
+.SYNOPSIS
+    Get PowerShell Latest and Pre-release Version from GitHub for Windows, Linux or macOS.
+    
+.DESCRIPTION
+    This is script checks for WinRM remoting on a single host or a list of hosts
+
+.EXAMPLE
+    .02-Get-PSRemoting.ps1 <arguments>    
+#>
 $HostNames = Get-Content ".\hostnames.txt"
 $localFilePath = ".\winget-packages.json"
 
