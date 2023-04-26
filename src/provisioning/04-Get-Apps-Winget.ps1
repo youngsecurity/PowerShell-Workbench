@@ -1,19 +1,21 @@
 <#
 .NOTES
-    Script Name: 02-Get-PSRemoting.ps1
+    Script Name: 04-Get-Apps-Winget.ps1
     Author: Joseph Young <joe@youngsecurity.net>
     Date: 4/26/2023
     Copyright: (c) Young Security Inc.
     Licensed: under the MIT License.
 
 .SYNOPSIS
-    Get PowerShell Latest and Pre-release Version from GitHub for Windows, Linux or macOS.
+    This script will use PSSession to connect to a list of hostnames.
+    Next, it will try to copy an exported Winget package file in JSON format.
+    Finally, it will try to install the packages in the JSON file using Winget.
     
 .DESCRIPTION
-    This is script checks for WinRM remoting on a single host or a list of hosts
+    This script uses Winget to import a list of packages and installs them.
 
 .EXAMPLE
-    .02-Get-PSRemoting.ps1 <arguments>    
+    \.04-Get-Apps-Winget.ps1 <arguments>    
 #>
 $HostNames = Get-Content ".\hostnames.txt"
 $localFilePath = ".\winget-packages.json"
