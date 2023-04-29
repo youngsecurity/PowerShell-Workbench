@@ -15,7 +15,7 @@
     This script uses Winget to import a list of packages and installs them.
 
 .EXAMPLE
-    \.04-Get-Apps-Winget.ps1 <arguments>    
+    .\04-Get-Apps-Winget.ps1 <arguments>    
 #>
 
 $HostNames = Get-Content ".\hostnames.txt"

@@ -7,7 +7,7 @@
     By default, the latest available PowerShell release and pre-release package will be checked.    
 .EXAMPLE
     Check the latest release and pre-release build
-    .\get-psversion.ps1
+    .\Get-PSversion.ps1
 .EXAMPLE
     Invoke this script directly from a Private GitHub Repo
     Invoke-Expression "& { $(Invoke-RestMethod 'https://raw.githubusercontent.com/$username/$repoName/master/$scriptPath') }"

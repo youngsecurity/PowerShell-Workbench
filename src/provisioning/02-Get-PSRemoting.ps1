@@ -15,7 +15,7 @@
     This is script checks for WinRM remoting on a single host or a list of hosts
 
 .EXAMPLE
-    .02-Get-PSRemoting.ps1 <arguments>    
+    .\02-Get-PSRemoting.ps1 <arguments>    
 #>
 
 Write-Host "Please choose one of the following options:"

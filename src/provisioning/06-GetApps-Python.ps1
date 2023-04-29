@@ -15,7 +15,7 @@
     This script checks for the latest version of Python and installs it if the version is outdated.
 
 .EXAMPLE
-    \.06-GetApps-Python.ps1 <arguments>    
+    .\06-GetApps-Python.ps1 <arguments>    
 #>
 try {
     # Get the local version of Python
