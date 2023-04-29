@@ -1,9 +1,9 @@
 # Commands used to setup a Linux Ubuntu system
 
-# scp a private key to from a remote server and download it to the local server
-scp devusr@10.0.255.44:/home/devusr/.ssh/id_carl_rsa_2048.pri /home/devusr/.ssh/id_carl_rsa_2048.pri
+# scp a file from a remote server to the localhost
+scp $userName@{$remoteHost}:/home/$userName/Downloads/fileName.txt /home/$userName/Downloads/fileName.txt
 
-# Congfiure static IPv4
+# Congfigure static IPv4
 # Step 1: Find NIC name
 sudo ip a
 # Step 2: Create a file named 01-netcfg.yaml in the /etc/netplan folder

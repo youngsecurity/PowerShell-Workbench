@@ -1,10 +1,10 @@
 # After choco is done installing, add more apps
-choco install -y chocolateygui googlechrome lastpass grammarly winrar python3 treesizefree
+choco install -y chocolateygui #googlechrome lastpass grammarly winrar treesizefree
 
 # Install vscode in a custom directory
-# TODO: Prompt the user for the path to install vscode
-choco install vscode.install -y --install-arguments="'/DIR=""F:\Program Files\Microsoft VS Code""'" --force
+$installPathVSC = Read-Host "Enter the path to install VSCode"
+choco install vscode.install -y --install-arguments="'/DIR=""$installPathVSC""'" --force
 
 # Install vscode-insiders in a custom directory
-# TODO: Prompt the user for the path to install vscode-insiders
-choco install vscode-insiders.install -y --install-arguments="'/DIR=""F:\Program Files\Microsoft VS Code Insiders""'" --force
+$installPathInsiders = Read-Host "Enter the path to install VSCode Insiders"
+choco install vscode-insiders.install -y --install-arguments="'/DIR=""$installPathInsiders""'" --force

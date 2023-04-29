@@ -1,23 +1,20 @@
 <#
 .NOTES
-    Script Name: 02-Get-PSRemoting.ps1
+    Script Name: PSNotes-Switch.ps1
     Author: Joseph Young <joe@youngsecurity.net>
-    Date: 4/26/2023
+    Date: 4/29/2023
     Copyright: (c) Young Security Inc.
     Licensed under the MIT License.
 
 .SYNOPSIS
-    Prompt the user to select a single host or provide a file containing a list of hostnames.
-    Then use PsExec64.exe to get the status of the WinRM service.
-    If WinRM status != "running", then the script will attempt to enable PSRemoting.
+    This script boilerplate will present the end-user with three options to choose from.
     
 .DESCRIPTION
-    This is script checks for WinRM remoting on a single host or a list of hosts
+    This script is boilerplate to help setup a multiple choice prompt.
 
 .EXAMPLE
-    .02-Get-PSRemoting.ps1 <arguments>    
+    \.PSNotes-Switch.ps1 <arguments>    
 #>
-
 Write-Host "Please choose one of the following options:"
 Write-Host "1. Enter a single hostname"
 Write-Host "2. Enter a file containing hostnames"
@@ -30,28 +27,20 @@ switch ($selection) {
         Write-Host "You selected Option One."
         $HostName = Read-Host "Enter a hostname"
         Write-Host "You entered the hostname: $HostName"
-        try {            
-            # Check PSRemoting status on remote host                        
-            $WinRMStatus = .\PsExec64.exe \\$HostName -h -s powershell "(Get-Service WinRM).Status"
-            
-            If ( $WinRMStatus -eq "Running” ) {
-                Write-Output "WinRM is already set up to receive requests on $HostName."
-            }
-            Else {
-                Write-Output "WinRM is not setup to recieve reqeusts on $HostName, and will be setup now."
-                # Enable PSRemoting on\target if not already enabled
-                ..\utilities\PsExec64.exe \\$HostName -h -s powershell "Enable-PSRemoting -SkipNetworkProfileCheck -Force"
-            }            
+        try {
+            # Try something            
         }
         catch [System.Management.Automation.ItemNotFoundException] {
             #Do this if a terminating exception happens
             Write-Host "The $HostName was not found." -ForegroundColor Red    
         }
         catch {
+            #Write out the exception message to the host
             Write-Host $PSItem.Exception.Message -ForegroundColor Red
         }
         finally {
             #Do this after the try block regardless of whether an exception occurred or not
+            #Clears the error
             $Error.Clear()
         }
     }
@@ -60,19 +49,10 @@ switch ($selection) {
         $filePath = Read-Host "Enter the file path containing hostnames"
         Write-Host "You entered the file path: $filePath"
         # Declare the variable and content to import the list of hostanmes or IP addresses
-        $Hosts = Get-Content $filePath        
+        $Hosts = Get-Content $filePath
         try {
             ForEach ($HostName in $Hosts) {
-                # Check PSRemoting status on remote host            
-                $WinRMStatus = ..\utilities\PsExec64.exe \\$HostName -h -s powershell "(Get-Service WinRM).Status"
-                If ( $WinRMStatus -eq "Running” ) {
-                    Write-Output "WinRM is already set up to receive requests on $HostName."
-                }
-                Else {
-                    Write-Output "WinRM is not setup to recieve reqeusts on $HostName, and will be setup now."
-                    # Enable PSRemoting on\target if not already enabled
-                    ..\utilities\PsExec64.exe \\$HostName -h -s powershell "Enable-PSRemoting -SkipNetworkProfileCheck -Force"
-                }
+                # Try something                
             }
         }
         catch [System.Management.Automation.ItemNotFoundException] {
@@ -80,10 +60,12 @@ switch ($selection) {
             Write-Host "The $HostName was not found." -ForegroundColor Red    
         }
         catch {
+            #Write out the exception message to the host
             Write-Host $PSItem.Exception.Message -ForegroundColor Red
         }
         finally {
             <#Do this after the try block regardless of whether an exception occurred or not#>
+            #Clears the error
             $Error.Clear()
         }
     }

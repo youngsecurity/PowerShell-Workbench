@@ -4,7 +4,7 @@
     Author: Joseph Young <joe@youngsecurity.net>
     Date: 4/26/2023
     Copyright: (c) Young Security Inc.
-    Licensed: under the MIT License.
+    Licensed under the MIT License.
 
 .SYNOPSIS
     This script will use PSSession to connect to a list of hostnames.
@@ -17,6 +17,7 @@
 .EXAMPLE
     \.04-Get-Apps-Winget.ps1 <arguments>    
 #>
+
 $HostNames = Get-Content ".\hostnames.txt"
 $localFilePath = ".\winget-packages.json"
 
@@ -24,7 +25,7 @@ try {
     ForEach ($HostName in $HostNames) {     
         $PSSession = New-PSSession -ComputerName $HostName #-Credential (Get-Credential)         
         $localFilePath = ".\winget-packages.json" 
-        $remoteFilePath = "\\$HostName\C$\Users\Public\Downloads\"
+        $remoteFilePath = "\\$HostName\$env:TEMP"
         Write-Host "Trying to copy winget-packages.json..."
         Copy-Item -Path $localFilePath -Destination $remoteFilePath        
         Invoke-Command -Session $PSSession -ScriptBlock {
@@ -33,9 +34,9 @@ try {
             Write-Host "whoami:" (whoami)                                   
             # Install more apps using winget and a import file
             Write-Host "Check if winget-packages.json exists (should return true)"
-            Test-Path -Path "C:\Users\Public\Downloads\winget-packages.json"
-            Set-Location -Path "C:\Users\Public\Downloads\" | winget import --import-file .\winget-packages.json --accept-package-agreements    # Install one or more apps using winget and an import file
-            Remove-Item -Path "C:\Users\Public\Downloads\winget-packages.json" # clean up by removing the winget import file
+            Test-Path -Path "$env:TEMP\winget-packages.json"
+            Set-Location -Path "$env:TEMP\" | winget import --import-file .\winget-packages.json --accept-package-agreements    # Install one or more apps using winget and an import file
+            Remove-Item -Path "$env:TEMP\winget-packages.json" # clean up by removing the winget import file
             # Install Chocolatey package manager
             # Step 1: Copy 04-Get-Choco.ps1, and run it locally, or run it remotely
             # Step 2: After Choco is installed, 
