@@ -34,14 +34,15 @@ if ($currentVersion -like "*preview*") {
     $latestPrereleaseUrl = "https://api.github.com/repos/PowerShell/PowerShell/releases"
     $checklatestPrerelease = Invoke-RestMethod -Uri $latestPreReleaseUrl
     $latestPrerelease = ($checklatestPrerelease | Where-Object { $_.prerelease -eq $true } | Select-Object -First 1).tag_name
+    Write-Host $latestPrerelease
     
-    if ($latestPrerelease -gt $currentVersion) {
+    if ($latestPrerelease -gt "v$currentVersion") {
         Write-Host "A new pre-release version of PowerShell is available!"
         Write-Host "Latest GitHub pre-release version: $latestPrerelease"
-        Write-Host "Your Current version: $currentVersion"
+        Write-Host "Your Current version: v$currentVersion"
     } else {
         Write-Host "You have the latest pre-release version of PowerShell."
-        Write-Host "Your Current version: $currentVersion"
+        Write-Host "Your Current version: v$currentVersion"
     }
 } else {
     Write-Host "You are running a stable version of PowerShell."
@@ -49,12 +50,12 @@ if ($currentVersion -like "*preview*") {
     $latestRelease = Invoke-RestMethod -Uri $latestReleaseUrl
     $latestVersion = $latestRelease.tag_name
 
-    if ($latestVersion -gt $currentVersion) {
+    if ($latestVersion -gt "v$currentVersion") {
         Write-Host "A new version of PowerShell is available!"
         Write-Host "Latest GitHub version: $latestVersion"
-        Write-Host "Your Current version: $currentVersion"
+        Write-Host "Your Current version: v$currentVersion"
     } else {
         Write-Host "You have the latest version of PowerShell."
-        Write-Host "Your Current version: $currentVersion"
+        Write-Host "Your Current version: v$currentVersion"
     }
 }
