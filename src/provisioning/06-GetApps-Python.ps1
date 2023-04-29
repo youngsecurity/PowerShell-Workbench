@@ -2,7 +2,7 @@
 .NOTES
     Script Name: 06-GetApps-Python.ps1
     Author: Joseph Young <joe@youngsecurity.net>
-    Date: 4/26/2023
+    Date: 4/29/2023
     Copyright: (c) Young Security Inc.
     Licensed under the MIT License.
 
