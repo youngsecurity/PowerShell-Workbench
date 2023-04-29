@@ -24,6 +24,8 @@ $checkpointName = "$vmName $(Get-Date -Format 'MM/dd/yyyy HH:mm:ss')"
 Checkpoint-VM -VM $vmRemote -SnapshotName $checkpointName -ComputerName $hostName
 
 # Example Pre-scripted, no user input required
-#Checkpoint-VM -Name "ubuntu-22" -SnapshotName "ubuntu-22 $(Get-Date -Format 'MM/dd/yyyy HH:mm:ss')" -ComputerName "QM2000M"
-#Checkpoint-VM -Name "steve" -SnapshotName "steve $(Get-Date -Format 'MM/dd/yyyy HH:mm:ss')" -ComputerName "QM2000M"
-#Checkpoint-VM -Name "dr-weird" -SnapshotName "dr-weird $(Get-Date -Format 'MM/dd/yyyy HH:mm:ss')" -ComputerName "QM2000M"
+Checkpoint-VM -Name "ubuntu-22" -SnapshotName "ubuntu-22 $(Get-Date -Format 'MM/dd/yyyy HH:mm:ss')" -ComputerName "QM2000M"
+Checkpoint-VM -Name "steve" -SnapshotName "steve $(Get-Date -Format 'MM/dd/yyyy HH:mm:ss')" -ComputerName "QM2000M"
+Checkpoint-VM -Name "dr-weird" -SnapshotName "dr-weird $(Get-Date -Format 'MM/dd/yyyy HH:mm:ss')" -ComputerName "QM2000M"
+Checkpoint-VM -Name "oglethorpe" -SnapshotName "oglethorpe $(Get-Date -Format 'MM/dd/yyyy HH:mm:ss')" -ComputerName "carl"
+Checkpoint-VM -Name "unos" -SnapshotName "unos $(Get-Date -Format 'MM/dd/yyyy HH:mm:ss')" -ComputerName "carl"
