@@ -8,6 +8,7 @@ Discord.Discord
 EpicGames.EpicGamesLauncher
 GitHub.cli
 GitHub.GitHubDesktop
+GnuPG.GnuPG
 GOG.Galaxy
 Google.Chrome
 Keybase.Keybase
@@ -34,5 +35,6 @@ Ubisoft.Connect
 Unity.UnityHub
 VideoLAN.VLC
 WhatsApp.WhatsApp
+Windscribe.Windscribe
 WiresharkFoundation.Wireshark
 Zoom.Zoom
