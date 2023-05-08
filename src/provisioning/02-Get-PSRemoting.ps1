@@ -8,7 +8,7 @@
 
 .SYNOPSIS
     Prompt the user to select a single host or provide a file containing a list of hostnames.
-    Then use PsExec64.exe to get the status of the WinRM service.
+    Then use PsExec64.exe with the credentials of the user this script runs as to get the status of the WinRM service.
     If WinRM status != "running", then the script will attempt to enable PSRemoting.
     
 .DESCRIPTION
