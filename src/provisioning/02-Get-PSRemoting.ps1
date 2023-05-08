@@ -32,7 +32,7 @@ switch ($selection) {
         Write-Host "You entered the hostname: $HostName"
         try {            
             # Check PSRemoting status on remote host                        
-            $WinRMStatus = .\PsExec64.exe \\$HostName -h -s powershell "(Get-Service WinRM).Status"
+            $WinRMStatus = ..\utilities\PsExec64.exe \\$HostName -h -s powershell "(Get-Service WinRM).Status"
             
             If ( $WinRMStatus -eq "Running” ) {
                 Write-Output "WinRM is already set up to receive requests on $HostName."
