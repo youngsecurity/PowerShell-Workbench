@@ -5,15 +5,12 @@
     Date: 4/29/2023
     Copyright: (c) Young Security Inc.
     Licensed under the MIT License.
-
 .SYNOPSIS
-    This script boilerplate will present the end-user with three options to choose from.
-    
+    This script boilerplate will present the end-user with three options to choose from.    
 .DESCRIPTION
     This script is boilerplate to help setup a multiple choice prompt.
-
 .EXAMPLE
-    \.PSNotes-Switch.ps1 <arguments>    
+    .\PSNotes-Switch.ps1 <arguments>    
 #>
 Write-Host "Please choose one of the following options:"
 Write-Host "1. Enter a single hostname"
@@ -31,16 +28,16 @@ switch ($selection) {
             # Try something            
         }
         catch [System.Management.Automation.ItemNotFoundException] {
-            #Do this if a terminating exception happens
+            # Do this if a terminating exception happens
             Write-Host "The $HostName was not found." -ForegroundColor Red    
         }
         catch {
-            #Write out the exception message to the host
+            # Write out the exception message to the host
             Write-Host $PSItem.Exception.Message -ForegroundColor Red
         }
         finally {
-            #Do this after the try block regardless of whether an exception occurred or not
-            #Clears the error
+            # Do this after the try block regardless of whether an exception occurred or not
+            # Clears the error
             $Error.Clear()
         }
     }
@@ -56,16 +53,16 @@ switch ($selection) {
             }
         }
         catch [System.Management.Automation.ItemNotFoundException] {
-            <#Do this if a terminating exception happens#>
+            # Do this if a terminating exception happens
             Write-Host "The $HostName was not found." -ForegroundColor Red    
         }
         catch {
-            #Write out the exception message to the host
+            # Write out the exception message to the host
             Write-Host $PSItem.Exception.Message -ForegroundColor Red
         }
         finally {
-            <#Do this after the try block regardless of whether an exception occurred or not#>
-            #Clears the error
+            # Do this after the try block regardless of whether an exception occurred or not
+            # Clears the error
             $Error.Clear()
         }
     }

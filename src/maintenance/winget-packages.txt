@@ -11,6 +11,7 @@ GitHub.GitHubDesktop
 GnuPG.GnuPG
 GOG.Galaxy
 Google.Chrome
+Google.ChromeRemoteDesktop
 Keybase.Keybase
 Microsoft.Office
 Microsoft.PowerShell
@@ -19,6 +20,7 @@ Microsoft.PowerToys
 Microsoft.VCRedist.2015+.x86
 Microsoft.VCRedist.2015+.x64
 Microsoft.VisualStudioCode
+Microsoft.WindowsSDK
 Mozilla.Firefox
 Notepad++.Notepad++
 OBSProject.OBSStudio
