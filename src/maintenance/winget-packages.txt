@@ -4,6 +4,7 @@ Bethesda.Launcher
 calibre.calibre
 clsid2.mpc-hc
 Chocolatey.ChocolateyGUI
+CPUID.CPU-Z
 Discord.Discord
 EpicGames.EpicGamesLauncher
 GitHub.cli
@@ -13,6 +14,7 @@ GOG.Galaxy
 Google.Chrome
 Google.ChromeRemoteDesktop
 Keybase.Keybase
+LizardByte.Sunshine
 Microsoft.Office
 Microsoft.PowerShell
 Microsoft.PowerShell.Preview
@@ -27,6 +29,7 @@ OBSProject.OBSStudio
 Oracle.JavaRuntimeEnvironment
 Python.Python.3.10
 Python.Python.3.11
+qBittorrent.qBittorrent
 RARLab.WinRAR
 SideQuestVR.SideQuest
 Splashtop.SplashtopPersonal
