@@ -72,7 +72,7 @@ switch ($selection) {
                         Write-Host "Checking PowerShell 7 Core Preview version..." -ForegroundColor Red
                         $PSCoreVersion = (Get-ItemPropertyValue -Path HKLM:\SOFTWARE\Microsoft\PowerShellCore\InstalledVersions\* -Name 'SemanticVersion')
                         Write-Host "You have PowerShell 7 Core Preview Version" ($PSCoreVersion[1])
-                        if ($PSCoreVersion[1] -ne "7.4.0-preview.3") {
+                        if ($PSCoreVersion[1] -ne "7.4.0-preview.4") {
                             Write-Host "You do not have the latest PowerShell Core 7 Preview Version installed. Your version is:" $PSCoreVersion[1]                            
                             Write-Host "Installing the latest PowerShell Core 7 Preview"
                             #winget upgrade
@@ -170,7 +170,7 @@ switch ($selection) {
                             Write-Host "Checking PowerShell 7 Core Preview version..." -ForegroundColor Red
                             $PSCoreVersion = (Get-ItemPropertyValue -Path HKLM:\SOFTWARE\Microsoft\PowerShellCore\InstalledVersions\* -Name 'SemanticVersion')
                             Write-Host "You have PowerShell 7 Core Preview Version" ($PSCoreVersion[1])
-                            if ($PSCoreVersion[1] -ne "7.4.0-preview.3") {
+                            if ($PSCoreVersion[1] -ne "7.4.0-preview.4") {
                                 Write-Host "You do not have the latest PowerShell Core 7 Preview Version installed. Your version is:" $PSCoreVersion[1]                            
                                 Write-Host "Installing the latest PowerShell Core 7 Preview"
                                 #winget upgrade
