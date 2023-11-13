@@ -30,7 +30,6 @@ Oracle.JavaRuntimeEnvironment
 Python.Python.3.10
 Python.Python.3.11
 qBittorrent.qBittorrent
-RARLab.WinRAR
 SideQuestVR.SideQuest
 Splashtop.SplashtopPersonal
 Spotify.Spotify
