@@ -1,5 +1,6 @@
 # Copyright (c) Microsoft Corporation.
 # Licensed under the MIT License.
+# Modified by Young Security
 <#
 .Synopsis
     Install PowerShell on Windows, Linux or macOS.
@@ -19,7 +20,7 @@
     On MacOS, make the symlink '/usr/local/bin/pwsh' points to "$Destination/pwsh".
 .EXAMPLE
     Install the daily build
-    .\install-powershell.ps1 -Daily
+    .\Get-PowerShell.ps1 -Daily
 .EXAMPLE
     Invoke this script directly from GitHub
     Invoke-Expression "& { $(Invoke-RestMethod 'https://aka.ms/install-powershell.ps1') } -daily"
@@ -63,13 +64,17 @@ $IsWinEnv = !$IsLinuxEnv -and !$IsMacOSEnv
 
 if (-not $Destination) {
     if ($IsWinEnv) {
-        $Destination = "$env:LOCALAPPDATA\Microsoft\powershell"
+        $Destination = "$env:ProgramFiles\PowerShell\7"
     } else {
         $Destination = "~/.powershell"
     }
 
     if ($Daily) {
         $Destination = "${Destination}-daily"
+    }
+
+    if ($Preview) {
+        $Destination = "$env:ProgramFiles\PowerShell\7-preview"
     }
 }
 
@@ -392,7 +397,7 @@ try {
                 Add-AppxPackage -Path $packagePath
             } elseif ($UseMSI -and $Quiet) {
                 Write-Verbose "Performing quiet install"
-                $ArgumentList=@("/i", $packagePath, "/quiet")
+                $ArgumentList=@("/i", $packagePath, "/quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=1 ENABLE_PSREMOTING=1 REGISTER_MANIFEST=1 USE_MU=1 ENABLE_MU=1 ADD_PATH=1")
                 if($MSIArguments) {
                     $ArgumentList+=$MSIArguments
                 }
