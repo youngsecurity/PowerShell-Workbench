@@ -77,7 +77,8 @@ Invoke-WebRequest -Uri "https://github.com/PowerShell/PowerShell/releases/downlo
 # The Appx module is not supported on certain platforms. Attempting to use the module generates the following error: [Operation is not supported on this platform. (0x80131539)]
 # To get the Appx module to load successfully, it is required to use the "-UseWindowsPowerShell" parameter
 Import-Module Appx -UseWindowsPowerShell
-# Loading the Appxmodule this way will return the following warning: WARNING: Module Appx is loaded in Windows PowerShell using WinPSCompatSession remoting session; please note that all input and output of commands from this module will be deserialized objects. If you want to load this module into PowerShell please use 'Import-Module -SkipEditionCheck' syntax.
+# Loading the Appxmodule this way will return the following warning: WARNING: Module Appx is loaded in Windows PowerShell using WinPSCompatSession remoting session; 
+# please note that all input and output of commands from this module will be deserialized objects. If you want to load this module into PowerShell please use 'Import-Module -SkipEditionCheck' syntax.
 # Import-Module Appx -SkipEditionCheck will also return the following error: [Operation is not supported on this platform. (0x80131539)]
 #
 # Appx: How to Get-AppxPackage
@@ -125,7 +126,7 @@ Install-Module -Name Microsoft.PowerShell.RemotingTools
 Enable-SSHRemoting -Verbose
 sudo service ssh restart
 #
-# Example
+# Example using PowerShell SSH Remoting
 #
 $session = New-PSSession -HostName windowsvm -UserName tim
 Enter-PSSession -Session $session
@@ -138,3 +139,41 @@ Invoke-Command $session -ScriptBlock { Get-Process -Name pwsh }
 # In the absence of a dedicated PSSession, you can use Invoke-Command on its own
 # by using the -HostName parameter:
 Invoke-Command -HostName linuxvm -UserName tim -ScriptBlock { Get-Process -Name pwsh }
+
+#
+# Setting PowerShell 7 as the Default Shell Manually in Windows Server Core
+#
+# If your Server Core machines are workgroup members, you can’t use Group Policy, so use the manual method:
+Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon' -Name Shell -Value 'pwsh.exe -NoExit'
+#
+#  Setting PowerShell as the Default Shell via Group Policy
+#
+# The first step is to setup a WMI Filter in Active Directory to detect Server Core machines and the second is to create and link the GPO itself. 
+# To create a new WMI Filter, using Group Policy Management Console create a new WMI Filter. Name it whatever you chose but I called mine 
+# Windows Server 2012 R2 Server Core Only. For the query itself, use the following WMI Query:
+'''WMI
+SELECT InstallState FROM Win32_OptionalFeature WHERE (Name = "Server-Gui-Shell") AND (InstallState = "2")
+'''
+# To break it down, this queries WMI in the Win32_OptionalFeature class and grabs the InstallState property. 
+# It then checks to see whether InstallState is equal to "2" for the Server-Gui-Shell value.
+# The way to tell the two apart is the installation state of the Server-Gui-Shell feature. On a server with a GUI, this will equal 1 
+# and on a server without the GUI this will equal 2.
+#
+# With the WMI Filter now created, we can create the GPO itself.
+# Create a new GPO and configure it to use the WMI Filter we just created. 
+# Once created and filtered, open up the GPO Editor so that we can add our setting.
+# With the GPO Editor, expand Computer Configuration > Preferences > Windows Preferences > Registry.
+# - Right-click the Registry node on the left and select New > Registry Item and configure the registry item as follows:
+'''Regedit
+Action: Update
+Hive: HKEY_LOCAL_MACHINE
+Key Path: SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
+Value Name: Shell
+Value Type: REG_SZ
+Value Data: PowerShell.exe -NoExit
+'''
+# Once you set this, hit OK and you’re done.
+# Link the GPO to an OU in your Active Directory hierarchy that contains your servers and once it has applied, get PowerShell as your default prompt when you logon.
+# Because the WMI Filter only applies to Server Core machines, it’s safe to link this GPO to a root OU that contains all of your servers so that when any Server Core
+# machines get dropped in, they will automatically pick this GPO up.
+# source: https://richardjgreen.net/setting-powershell-default-shell-server-core/
