@@ -16,9 +16,6 @@ Invoke-Command -Session $PSSession -ScriptBlock {}
 # Or for running remote PowerShell commands on a single server without creating a session
 Invoke-Command -ComputerName $computerName -ScriptBlock {}
 
-# See the following example for script usage
-./PSNotes-PSSession.ps1 
-
 # How to accept username and password from the CLI securely
 $adminUser = Read-Host -Prompt "Enter the Administrator username" -AsSecureString
 $adminPassword = Read-Host -Prompt "Enter the Administrator password" -AsSecureString
@@ -90,3 +87,5 @@ Get-AppxPackage Microsoft.XboxApp
 Get-AppxPackage Microsoft.GamingServices | Remove-AppxPackage
 Get-AppxPackage Microsoft.XboxApp | Remove-AppxPackage
 
+# How to use the Get-* module and pipe to Where-Object is like something
+Get-WindowsCapability -Online | Where-Object {$_.Name -like "*OpenSSH*"}

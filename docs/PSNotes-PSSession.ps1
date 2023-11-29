@@ -2,7 +2,7 @@ $HostNames = Get-Content ".\hostnames.txt"
 
 try {
     ForEach ($HostName in $HostNames) {     
-        $PSSession = New-PSSession -ComputerName $HostName #-Credential (Get-Credential)
+        $PSSession = New-PSSession -ComputerName $HostName #-Credential (Get-Credential) -ConfigurationName PowerShell.7.4.0
         Invoke-Command -Session $PSSession -ScriptBlock { # some code            
             Write-Host `r
             Write-Host "hostname:" (hostname)
