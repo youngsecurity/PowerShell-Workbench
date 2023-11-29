@@ -89,3 +89,52 @@ Get-AppxPackage Microsoft.XboxApp | Remove-AppxPackage
 
 # How to use the Get-* module and pipe to Where-Object is like something
 Get-WindowsCapability -Online | Where-Object {$_.Name -like "*OpenSSH*"}
+
+#
+# Install and Configure PowerShell Remoting over SSH
+# PowerShell 7.x supports SSH for cross-platform remoting
+#
+# Add the OpenSSH client and server to Windows
+Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
+Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+# Next, set the SSH server service to start automatically, and then start up the service:
+Set-Service -Name sshd -StartupType 'Automatic'
+Start-Service -Name sshd
+# Use the Microsoft's RemotingTools module to configure SSH-based remoting:
+Install-Module -Name Microsoft.PowerShell.RemotingTools
+Import-Module -Name Microsoft.PowerShell.RemotingTools
+# The RemotingTools module contains a single cmdlet, called Enable-SSHRemoting, 
+# that performs the following actions:
+# - Detects the operating system (Windows, macOS, Linux)
+# - Detects the SSH client and server
+# - Creates an SSH-based remoting endpoint
+# - Updates the SSHD configuration file
+# Run the cmdlet and follow the prompts. 
+# Restart the sshd service after the command completes.
+Enable-SSHRemoting -Verbose
+Restart-Service -Name sshd
+#
+# Prepare Ubuntu system for SSH-based PowerShell remoting
+#
+# Open a terminal session on the server and begin by installing OpenSSH client and server:
+sudo apt install openssh-client
+sudo apt install openssh-server
+# Start an elevated pwsh session, install the RemotingTools module from the PowerShell Gallery, 
+# and run the Enable-SSHRemoting command. Restart the SSH server daemon after the command finishes.
+Install-Module -Name Microsoft.PowerShell.RemotingTools
+Enable-SSHRemoting -Verbose
+sudo service ssh restart
+#
+# Example
+#
+$session = New-PSSession -HostName windowsvm -UserName tim
+Enter-PSSession -Session $session
+Exit-PSSession
+# The -HostName parameter is for SSH remoting. The -ComputerName parameter is for WinRM remoting.
+# The HostName value can be either a Domain Name System (DNS) name or an IP address.
+#
+# Send PowerShell script blocks to a remote system using Invoke-Command as usual:
+Invoke-Command $session -ScriptBlock { Get-Process -Name pwsh }
+# In the absence of a dedicated PSSession, you can use Invoke-Command on its own
+# by using the -HostName parameter:
+Invoke-Command -HostName linuxvm -UserName tim -ScriptBlock { Get-Process -Name pwsh }
