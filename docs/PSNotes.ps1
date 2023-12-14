@@ -42,17 +42,18 @@ Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Pe
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Value 0
 
 # This enables Windows 10/11 Light Mode for Apps and System
-#Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name SystemUsesLightTheme -Value 1
-#Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Value 1
+Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name SystemUsesLightTheme -Value 1
+Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Value 1
 
 # This disables the Task View button on the taskbar
-#Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ #not complete
+Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ #not complete
 
 #
 # From the PowerShell Command Cheat Sheet
 #
 # Try, Catch, Finally (optional), The code below shows the syntax of the Try statement.
-<#try {
+<#
+try {
     <statement list> -ErrorAction Stop 
 }
 catch [[<error type>][',' <error type>]*]{
@@ -60,7 +61,8 @@ catch [[<error type>][',' <error type>]*]{
 }
 finally {
     <statement list>
-}#> 
+}
+#> 
 
 # Pipe out to Get-Member to find TypeName value of the Exception property and all methods and properties for objects
 $Error[0].Exception | Get-Member
@@ -98,7 +100,7 @@ Get-WindowsCapability -Online | Where-Object {$_.Name -like "*OpenSSH*"}
 # Add the OpenSSH client and server to Windows
 Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
 Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
-# Next, set the SSH server service to start automatically, and then start up the service:
+# Next, reboot, then set the SSH server service to start automatically, and then start up the service:
 Set-Service -Name sshd -StartupType 'Automatic'
 Start-Service -Name sshd
 # Use the Microsoft's RemotingTools module to configure SSH-based remoting:
@@ -177,3 +179,15 @@ Value Data: PowerShell.exe -NoExit
 # Because the WMI Filter only applies to Server Core machines, it’s safe to link this GPO to a root OU that contains all of your servers so that when any Server Core
 # machines get dropped in, they will automatically pick this GPO up.
 # source: https://richardjgreen.net/setting-powershell-default-shell-server-core/
+
+#
+# Check if Hyper-V is installed:
+Get-WindowsFeature -Name Hyper-V
+#
+# If it's not installed, you can install it using:
+Install-WindowsFeature -Name Hyper-V -IncludeManagementTools -Restart
+# The system will restart to complete the installation.
+
+# Check GitHub for latest version of PiHole
+(Invoke-RestMethod -Uri "https://api.github.com/repos/pi-hole/pi-hole/releases/latest" | Select-Object -ExpandProperty tag_name)
+(Invoke-RestMethod -Uri "https://api.github.com/repos/pi-hole/pi-hole/releases"  | Where-Object { $_.prerelease -eq $true } | Select-Object -First 1).tag_name
