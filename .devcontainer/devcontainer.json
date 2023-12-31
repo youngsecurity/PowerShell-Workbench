@@ -23,8 +23,8 @@
 		"github-cli": "latest",
 		"aws-cli": "latest",
 		"azure-cli": "latest",
-		"sshd": "latest",
-		"homebrew": "latest",
+		"sshd": "latest",		
+		"ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2": {},
 		"powershell": "latest",
 		"dotnet": "latest"
 	}
