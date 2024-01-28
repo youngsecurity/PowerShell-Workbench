@@ -10,7 +10,7 @@
 .DESCRIPTION
     
 .EXAMPLE
-    .\RemoveHyperVVM.ps1    
+    .\00-RemoveHyperVVM.ps1
 #>
 
 # Ask the user for the VM name
