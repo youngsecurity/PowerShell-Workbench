@@ -2,7 +2,7 @@
 .NOTES
     Script Name: 00-Create-hv.ps1
     Author: Joseph Young <joe@youngsecurity.net>
-    Date: 6/24/2023
+    Date: 1/28/2024
     Copyright: (c) Young Security Inc.
     Licensed under the MIT License.
 .SYNOPSIS
@@ -14,7 +14,7 @@
 #>
 Write-Host "Please choose one of the following options:"
 Write-Host "1. Enter a single hostname"
-Write-Host "2. Enter a file containing hostnames"
+Write-Host "2. Provide a file containing hostnames"
 Write-Host "3. Quit"
 
 $selection = Read-Host "Enter your selection (1, 2, or 3)"
@@ -43,7 +43,7 @@ switch ($selection) {
     }
     2 {
         Write-Host "You selected Option Two."
-        $filePath = Read-Host "Enter the file path containing hostnames"
+        $filePath = Read-Host "Provide the path to the file containing hostnames"
         Write-Host "You entered the file path: $filePath"
         # Declare the variable and content to import the list of hostanmes or IP addresses
         $Hosts = Get-Content $filePath
