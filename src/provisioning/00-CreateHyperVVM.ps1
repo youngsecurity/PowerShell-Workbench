@@ -51,6 +51,10 @@ New-Item -Path $vmPath -ItemType Directory -Force
 # Create the VM
 New-VM -Name $vmName -MemoryStartupBytes 8GB -Path $vmPath -Generation 2
 
+# TODO: Firmware > Boot from: Pre setup: CDROM, Post setup: UEFI
+# TODO: Security > Secure Boot disabled
+# TODO: 
+
 # Add Processor
 Set-VMProcessor $vmName -Count 4
 
@@ -68,7 +72,8 @@ $virtualSwitch = Get-VMSwitch -Name $virtualSwitchName -ErrorAction SilentlyCont
 
 if ($virtualSwitch) {
     # If the Virtual Switch exists, connect the VM to the Virtual Switch
-    Add-VMNetworkAdapter -VMName $vmName -SwitchName $virtualSwitchName
+    Set-VMNetworkAdapter -VMName $vmName -SwitchName $virtualSwitchName
+    #Add-VMNetworkAdapter -VMName $vmName -SwitchName $virtualSwitchName
     Write-Host "VM $vmName connected to the virtual switch $virtualSwitchName." -ForegroundColor Green
 } else {
     Write-Host "Virtual Switch $virtualSwitchName not found. VM $vmName will not be connected to a network." -ForegroundColor Yellow
