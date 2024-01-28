@@ -10,10 +10,9 @@
 .DESCRIPTION
     
 .EXAMPLE
-    .\00-CreateHyperVVM.ps1 <arguments>    
+    .\00-CreateHyperVVM.ps1 <arguments>        
+    .\00-CreateHyperVVM.ps1 'VMName' 'C:\Hyper-V\VMs\VMName' 'C:\Hyper-V\VMs\VMName\VMName.vhdx' 'C:\Path\To\Your\ISOFile.iso' 'YourVirtualSwitchName'
 #>
-# Example
-# .\CreateHyperVVM.ps1 'VMName' 'C:\Hyper-V\VMs\VMName' 'C:\Hyper-V\VMs\VMName\VMName.vhdx' 'C:\Path\To\Your\ISOFile.iso' 'YourVirtualSwitchName'
 
 # Function to get userInput with a prompt
 function Get-userInput {
