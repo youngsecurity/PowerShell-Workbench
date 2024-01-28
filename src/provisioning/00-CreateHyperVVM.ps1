@@ -1,3 +1,17 @@
+<#
+.NOTES
+    Script Name: 00-CreateHyperVVM.ps1
+    Author: Joseph Young <joe@youngsecurity.net>
+    Date: 1/28/2024
+    Copyright: (c) Young Security Inc.
+    Licensed under the MIT License.
+.SYNOPSIS
+    This script boilerplate will create resources in Hyper-V on the local system.
+.DESCRIPTION
+    
+.EXAMPLE
+    .\00-CreateHyperVVM.ps1 <arguments>    
+#>
 # Example
 # .\CreateHyperVVM.ps1 'VMName' 'C:\Hyper-V\VMs\VMName' 'C:\Hyper-V\VMs\VMName\VMName.vhdx' 'C:\Path\To\Your\ISOFile.iso' 'YourVirtualSwitchName'
 
