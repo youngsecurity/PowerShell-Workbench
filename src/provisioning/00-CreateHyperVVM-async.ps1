@@ -8,66 +8,79 @@
 .SYNOPSIS
     This script boilerplate will create resources async in Hyper-V on the local system.
 .DESCRIPTION
-    Requires all eight arguments to be passed or defaults will be used.
+    This async script calls the `00-CreateHyperVVM.ps1` script which requires eight arguments to be passed or defaults will be used.
+
 .EXAMPLE
-    .\00-CreateHyperVVM-async.ps1 <arguments>    
-    .\00-CreateHyperVVM-async.ps1 'VMName' '4' '4GB' 'C:\Hyper-V\VMs\VMName' 'C:\Hyper-V\VMs\VMName\VMName.vhdx' '30GB' 'C:\Path\To\Your\ISOFile.iso' 'YourVirtualSwitchName'
+    .\00-CreateHyperVVM-async.ps1 <arguments>       
 #>
 
-# Load the necessary assembly for runspaces
-Add-Type -AssemblyName System.Management.Automation
-
-# Define the base script path and ensure it's correct and accessible
-$scriptPath = "F:\GitHub\PowerShell-Workbench\src\provisioning\00-CreateHyperVVM.ps1" # Update to your actual script path
-
-# Define a generic script block for runspace execution
-# Define the script block
+# Define the script block to run the external script with parameters
 $scriptBlock = {
-    param(
-        [string]$scriptPath,
-        [string]$vmName,
-        [string]$cpuCount,
-        [string]$memorySize,
-        [string]$vmDirectoryPath,
-        [string]$vhdxPath,
-        [string]$vhdxSize,
-        [string]$isoPath,
-        [string]$switchName
-    )
-    & $scriptPath $vmName $cpuCount $memorySize $vmDirectoryPath $vhdxPath $vhdxSize $isoPath $switchName
+    param($scriptPath, $vmName, $cpu, $memory, $vmDirectoryPath, $vhdxPath, $vhdxSize, $isoPath, $switchName)
+    & $scriptPath $vmName $cpu $memory $vmDirectoryPath $vhdxPath $vhdxSize $isoPath $switchName
 }
 
-# Specify the full path to your script if not running from the same directory
-$fullScriptPath = ".\00-CreateHyperVVM.ps1"
+# Start the first job
+$argumentsJob1 = @(    
+    ".\00-CreateHyperVVM.ps1", # $scriptPath
+    'carl-nix-04', # $vmName   
+    '4', # $cpu
+    '4GB', # $memory
+    'F:\Hyper-V\Virtual Machines\', # $vmDirectoryPath
+    'F:\Hyper-V\Virtual Machines\carl-nix-04\Virtual Hard Disks\carl-nix-04.vhdx', # $vhdxPath
+    '15GB', # $vhdxSize
+    'E:\!_Apps\!_Linux\!_Ubuntu\ubuntu-23.10-live-server-amd64.iso', # $isoPath
+    'VM-TRUNK' # $switchName
+)
+$job1 = Start-Job -ScriptBlock $scriptBlock -ArgumentList $argumentsJob1
 
-# Execute the script block with the provided parameters
-& $scriptBlock $fullScriptPath 'carl-nix-02' '4' '4GB' 'F:\Hyper-V\Virtual Machines\' 'F:\Hyper-V\Virtual Machines\carl-nix-02\Virtual Hard Disks\carl-nix-02.vhdx' '15GB' 'E:\!_Apps\!_Linux\!_Ubuntu\ubuntu-23.10-live-server-amd64.iso' 'VM-TRUNK'
+# Start the second job
+$argumentsJob2 = @(
+    ".\00-CreateHyperVVM.ps1",
+    'carl-nix-05',
+    '4',
+    '4GB',
+    'F:\Hyper-V\Virtual Machines\',
+    'F:\Hyper-V\Virtual Machines\carl-nix-05\Virtual Hard Disks\carl-nix-05.vhdx',
+    '15GB',
+    'E:\!_Apps\!_Linux\!_Ubuntu\ubuntu-23.10-live-server-amd64.iso',
+    'VM-TRUNK'
+)
+$job2 = Start-Job -ScriptBlock $scriptBlock -ArgumentList $argumentsJob2
 
-# Adjust these variables as needed for each VM
-$params1 = @($scriptPath, 'carl-nix-02', '4', '4GB', 'F:\Hyper-V\Virtual Machines\', 'F:\Hyper-V\Virtual Machines\carl-nix-02\Virtual Hard Disks\carl-nix-02.vhdx', '15GB', 'E:\!_Apps\!_Linux\!_Ubuntu\ubuntu-23.10-live-server-amd64.iso', 'VM-TRUNK')
-$params2 = @($scriptPath, 'carl-nix-03', '4', '4GB', 'F:\Hyper-V\Virtual Machines\', 'F:\Hyper-V\Virtual Machines\carl-nix-03\Virtual Hard Disks\carl-nix-03.vhdx', '15GB', 'E:\!_Apps\!_Linux\!_Ubuntu\ubuntu-23.10-live-server-amd64.iso', 'VM-TRUNK')
+# Start the third job
+$argumentsJob3 = @(
+    ".\00-CreateHyperVVM.ps1",
+    'carl-nix-05',
+    '4',
+    '4GB',
+    'F:\Hyper-V\Virtual Machines\',
+    'F:\Hyper-V\Virtual Machines\carl-nix-05\Virtual Hard Disks\carl-nix-05.vhdx',
+    '15GB',
+    'E:\!_Apps\!_Linux\!_Ubuntu\ubuntu-23.10-live-server-amd64.iso',
+    'VM-TRUNK'
+)
+$job3 = Start-Job -ScriptBlock $scriptBlock -ArgumentList $argumentsJob3
 
-# Create and configure the runspaces
-$Runspace1 = [runspacefactory]::CreateRunspace()
-$Runspace1.Open()
-$PowerShell1 = [powershell]::Create().AddScript($scriptBlock).AddArgument($params1)
-$PowerShell1.Runspace = $Runspace1
+# Optionally, wait for the jobs to finish and retrieve their results
+Wait-Job $job1, $job2, $job3, $job4
+$results1 = Receive-Job -Job $job1
+$results2 = Receive-Job -Job $job2
+$results3 = Receive-Job -Job $job3
+$results4 = Receive-Job -Job $job4
+$results5 = Receive-Job -Job $job5
 
-$Runspace2 = [runspacefactory]::CreateRunspace()
-$Runspace2.Open()
-$PowerShell2 = [powershell]::Create().AddScript($scriptBlock).AddArgument($params2)
-$PowerShell2.Runspace = $Runspace2
+# Output the results
+Write-Output "Results from job 1: $results1"
+Write-Output "Results from job 2: $results2"
+Write-Output "Results from job 3: $results3"
+Write-Output "Results from job 4: $results4"
+Write-Output "Results from job 5: $results5"
 
-# Start the runspaces asynchronously
-$Async1 = $PowerShell1.BeginInvoke()
-$Async2 = $PowerShell2.BeginInvoke()
+# Clean up
+Remove-Job -Job $job1
+Remove-Job -Job $job2
+Remove-Job -Job $job3
+Remove-Job -Job $job4
+Remove-Job -Job $job5
 
-# Wait for the runspaces to complete
-$PowerShell1.EndInvoke($Async1)
-$PowerShell2.EndInvoke($Async2)
-
-# Cleanup
-$PowerShell1.Dispose()
-$Runspace1.Close()
-$PowerShell2.Dispose()
-$Runspace2.Close()
