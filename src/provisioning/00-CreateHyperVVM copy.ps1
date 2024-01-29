@@ -14,43 +14,39 @@
     .\00-CreateHyperVVM.ps1 'VMName' '4' '4GB' 'C:\Hyper-V\VMs\VMName' 'C:\Hyper-V\VMs\VMName\VMName.vhdx' '30GB' 'C:\Path\To\Your\ISOFile.iso' 'YourVirtualSwitchName'
 #>
 
-# Function to validate and set default values for VM parameters
-function Set-DefaultValue {
+# Function to get userInput with a prompt
+function Get-userInput {
     param (
-        [string]$value,
-        [string]$defaultValue
+        [string]$prompt,
+        [string]$defaultValue = ""
     )
-    if ([string]::IsNullOrWhiteSpace($value)) {
+    Write-Host ""$prompt": " -NoNewline
+    $userInput = Read-Host
+    if ([string]::IsNullOrWhiteSpace($userInput)) {
         return $defaultValue
     }
-    return $value
+    return $userInput
 }
 
-# Check command line arguments
-if ($args.Count -ne 8) {
-    Write-Host "Usage: .\00-CreateHyperVVM.ps1 <VM Name> <vCPU Cores> <Memory> <VM Path> <VHDX Path> <VHDX Size> <ISO Path> <Virtual Switch Name>"
-    Write-Host "Not all parameters provided. Exiting script."
-    exit
+# Check command line arguments and prompt for missing information
+if ($args.Count -eq 8) {
+    $vmName, $vcpuCores, $vmMemory, $vmPath, $vhdxPath, $vhdxSize, $isoPath, $virtualSwitchName = $args
+} else {
+    $vmName = Get-userInput -prompt "Enter VM Name" -defaultValue "YourVMName"
+    $vcpuCores = Get-userInput -prompt "Enter the number of vCPU Cores" -defaultValue "4"
+    $vmMemory = Get-userInput -prompt "Enter the amount of memory" -defaultValue "4GB"
+    $vmPath = Get-userInput -prompt "Enter path to save the VM" -defaultValue "C:\Hyper-V\VMs\$vmName"
+    # Ask for VHDX path only if not provided in command line arguments
+    $vhdxPath = Get-userInput -prompt "Enter path to save the VM's VHDX" -defaultValue "C:\Hyper-V\VMs\$vmName\$vmName.vhdx"
+    $vhdxSize = Get-userInput -prompt "Enter the size of the vhdx" -defaultValue "15GB"
+    $isoPath = Get-userInput -prompt "Enter path to the ISO to boot from" -defaultValue "C:\Path\To\Your\ISOFile.iso"
+    $virtualSwitchName = Get-userInput -prompt "Enter the name of your virtual switch" -defaultValue "YourVirtualSwitchName"
 }
 
-# Assigning command line arguments to variables
-$vmName, $vcpuCores, $vmMemory, $vmPath, $vhdxPath, $vhdxSize, $isoPath, $virtualSwitchName = $args
-
-# Use default values if necessary (you can adjust these defaults as needed)
-$vmName = Set-DefaultValue -value $vmName -defaultValue "YourVMName"
-$vcpuCores = Set-DefaultValue -value $vcpuCores -defaultValue "4"
-$vmMemory = Set-DefaultValue -value $vmMemory -defaultValue "4GB"
-$vmPath = Set-DefaultValue -value $vmPath -defaultValue "C:\Hyper-V\VMs\$vmName"
-$vhdxPath = Set-DefaultValue -value $vhdxPath -defaultValue "$vmPath\$vmName.vhdx"
-$vhdxSize = Set-DefaultValue -value $vhdxSize -defaultValue "15GB"
-$isoPath = Set-DefaultValue -value $isoPath -defaultValue "C:\Path\To\Your\ISOFile.iso"
-$virtualSwitchName = Set-DefaultValue -value $virtualSwitchName -defaultValue "YourVirtualSwitchName"
-
-# Create VM Directory
-New-Item -Path $vmPath -ItemType Directory -Force
-
-# The rest of the script follows without changes...
-# It uses the variables defined above to create and configure the VM.
+# Ensure the VHDX path is correctly formed based on the VM path if default is used
+if ($vhdxPath -eq "C:\Hyper-V\VMs\$vmName\$vmName.vhdx") {
+    $vhdxPath = Join-Path -Path $vmPath -ChildPath "$vmName.vhdx"
+}
 
 # Create VM Directory
 New-Item -Path $vmPath -ItemType Directory -Force
