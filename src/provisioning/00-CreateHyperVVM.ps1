@@ -49,12 +49,6 @@ $virtualSwitchName = Set-DefaultValue -value $virtualSwitchName -defaultValue "Y
 # Create VM Directory
 New-Item -Path $vmPath -ItemType Directory -Force
 
-# The rest of the script follows without changes...
-# It uses the variables defined above to create and configure the VM.
-
-# Create VM Directory
-New-Item -Path $vmPath -ItemType Directory -Force
-
 # Create the VM
 New-VM -Name $vmName -MemoryStartupBytes $vmMemory -Path $vmPath -Generation 2
 
