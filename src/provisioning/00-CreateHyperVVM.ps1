@@ -29,8 +29,8 @@ function Get-userInput {
 }
 
 # Check command line arguments and prompt for missing information
-if ($args.Count -eq 5) {
-    $vmName, $vcpuCores, $vmPath, $vhdxPath, $isoPath, $virtualSwitchName = $args
+if ($args.Count -eq 8) {
+    $vmName, $vcpuCores, $vmMemory, $vmPath, $vhdxPath, $vhdxSize, $isoPath, $virtualSwitchName = $args
 } else {
     $vmName = Get-userInput -prompt "Enter VM Name" -defaultValue "YourVMName"
     $vcpuCores = Get-userInput -prompt "Enter the number of vCPU Cores" -defaultValue "4"
