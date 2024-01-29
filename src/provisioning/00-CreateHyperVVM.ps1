@@ -11,7 +11,7 @@
     
 .EXAMPLE
     .\00-CreateHyperVVM.ps1 <arguments>        
-    .\00-CreateHyperVVM.ps1 'VMName' 'C:\Hyper-V\VMs\VMName' 'C:\Hyper-V\VMs\VMName\VMName.vhdx' 'C:\Path\To\Your\ISOFile.iso' 'YourVirtualSwitchName'
+    .\00-CreateHyperVVM.ps1 'VMName' '4' '4GB' 'C:\Hyper-V\VMs\VMName' 'C:\Hyper-V\VMs\VMName\VMName.vhdx' '30GB' 'C:\Path\To\Your\ISOFile.iso' 'YourVirtualSwitchName'
 #>
 
 # Function to get userInput with a prompt
@@ -30,12 +30,15 @@ function Get-userInput {
 
 # Check command line arguments and prompt for missing information
 if ($args.Count -eq 5) {
-    $vmName, $vmPath, $vhdxPath, $isoPath, $virtualSwitchName = $args
+    $vmName, $vcpuCores, $vmPath, $vhdxPath, $isoPath, $virtualSwitchName = $args
 } else {
     $vmName = Get-userInput -prompt "Enter VM Name" -defaultValue "YourVMName"
+    $vcpuCores = Get-userInput -prompt "Enter the number of vCPU Cores" -defaultValue "4"
+    $vmMemory = Get-userInput -prompt "Enter the amount of memory" -defaultValue "4GB"
     $vmPath = Get-userInput -prompt "Enter path to save the VM" -defaultValue "C:\Hyper-V\VMs\$vmName"
     # Ask for VHDX path only if not provided in command line arguments
     $vhdxPath = Get-userInput -prompt "Enter path to save the VM's VHDX" -defaultValue "C:\Hyper-V\VMs\$vmName\$vmName.vhdx"
+    $vhdxSize = Get-userInput -prompt "Enter the size of the vhdx" -defaultValue "15GB"
     $isoPath = Get-userInput -prompt "Enter path to the ISO to boot from" -defaultValue "C:\Path\To\Your\ISOFile.iso"
     $virtualSwitchName = Get-userInput -prompt "Enter the name of your virtual switch" -defaultValue "YourVirtualSwitchName"
 }
@@ -49,22 +52,20 @@ if ($vhdxPath -eq "C:\Hyper-V\VMs\$vmName\$vmName.vhdx") {
 New-Item -Path $vmPath -ItemType Directory -Force
 
 # Create the VM
-New-VM -Name $vmName -MemoryStartupBytes 8GB -Path $vmPath -Generation 2
-
-# TODO: Firmware > Boot from: Pre setup: CDROM, Post setup: UEFI
-# TODO: Security > Secure Boot disabled
-# TODO: 
+New-VM -Name $vmName -MemoryStartupBytes $vmMemory -Path $vmPath -Generation 2
 
 # Add Processor
-Set-VMProcessor $vmName -Count 4
+Set-VMProcessor $vmName -Count $vcpuCores
 
+# Add VM Memory
+Set-VM -Name $vmName -MemoryStartupBytes $vmMemory
 # Disable Secure Boot
 Set-VMFirmware -VMName $vmName -EnableSecureBoot Off
 # Enable Secure Boot
 #Set-VMFirmware -VMName $vmName -EnableSecureBoot On
 
 # Create a new VHDX
-New-VHD -Path $vhdxPath -SizeBytes 30GB -Dynamic
+New-VHD -Path $vhdxPath -SizeBytes $vhdxSize -Dynamic
 
 # Attach the VHDX to the VM
 Add-VMHardDiskDrive -VMName $vmName -Path $vhdxPath
