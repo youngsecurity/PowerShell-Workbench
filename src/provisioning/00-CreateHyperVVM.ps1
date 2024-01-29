@@ -58,18 +58,28 @@ New-VM -Name $vmName -MemoryStartupBytes 8GB -Path $vmPath -Generation 2
 # Add Processor
 Set-VMProcessor $vmName -Count 4
 
+# Disable Secure Boot
+Set-VMFirmware -VMName $vmName -EnableSecureBoot Off
+# Enable Secure Boot
+#Set-VMFirmware -VMName $vmName -EnableSecureBoot On
+
 # Create a new VHDX
 New-VHD -Path $vhdxPath -SizeBytes 30GB -Dynamic
 
 # Attach the VHDX to the VM
 Add-VMHardDiskDrive -VMName $vmName -Path $vhdxPath
 
-# Set the VM to boot from the ISO
+# Attach a DVD Drive to the VM and include a path to boot from the ISO
 Add-VMDvdDrive -VMName $vmName -ControllerNumber 0 -ControllerLocation 1 -Path $isoPath
 
 # Check that the DVD Drive was added to the VM
 Get-VM -Name $vmName | Select-Object Name, DVDDrives | Format-List *
+
+# Check the Path to the ISO
 Get-VMDvdDrive -VMName $vmName | Select-Object Path
+
+# Set a VM's first boot device to its DVD drive
+Set-VMFirmware -VMName $vmName -FirstBootDevice (Get-VMDvdDrive -VMName $vmName)
 
 # Check if the specified Virtual Switch exists
 $virtualSwitch = Get-VMSwitch -Name $virtualSwitchName -ErrorAction SilentlyContinue
