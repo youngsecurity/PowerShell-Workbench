@@ -72,7 +72,7 @@ $virtualSwitch = Get-VMSwitch -Name $virtualSwitchName -ErrorAction SilentlyCont
 
 if ($virtualSwitch) {
     # If the Virtual Switch exists, connect the VM to the Virtual Switch
-    Set-VMNetworkAdapter -VMName $vmName -SwitchName $virtualSwitchName
+    Get-VMNetworkAdapter -VMName $vmName | Connect-VMNetworkAdapter -SwitchName $virtualSwitchName
     #Add-VMNetworkAdapter -VMName $vmName -SwitchName $virtualSwitchName
     Write-Host "VM $vmName connected to the virtual switch $virtualSwitchName." -ForegroundColor Green
 } else {
@@ -84,3 +84,4 @@ if ($virtualSwitch) {
 
 # Output message
 Write-Host "VM $vmName created and configured successfully." -ForegroundColor Green
+
