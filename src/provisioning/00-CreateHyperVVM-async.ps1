@@ -11,7 +11,7 @@
     This async script calls the `00-CreateHyperVVM.ps1` script which requires eight arguments to be passed or defaults will be used.
 
 .EXAMPLE
-    .\00-CreateHyperVVM-async.ps1 <arguments>       
+    .\00-CreateHyperVVM-async.ps1 <arguments>
 #>
 
 # Define the script block to run the external script with parameters
@@ -51,16 +51,44 @@ $job2 = Start-Job -ScriptBlock $scriptBlock -ArgumentList $argumentsJob2
 # Start the third job
 $argumentsJob3 = @(
     ".\00-CreateHyperVVM.ps1",
-    'carl-nix-05',
+    'carl-nix-06',
     '4',
     '4GB',
     'F:\Hyper-V\Virtual Machines\',
-    'F:\Hyper-V\Virtual Machines\carl-nix-05\Virtual Hard Disks\carl-nix-05.vhdx',
+    'F:\Hyper-V\Virtual Machines\carl-nix-06\Virtual Hard Disks\carl-nix-06.vhdx',
     '15GB',
     'E:\!_Apps\!_Linux\!_Ubuntu\ubuntu-23.10-live-server-amd64.iso',
     'VM-TRUNK'
 )
 $job3 = Start-Job -ScriptBlock $scriptBlock -ArgumentList $argumentsJob3
+
+# Start the fourth job
+$argumentsJob4 = @(
+    ".\00-CreateHyperVVM.ps1",
+    'carl-nix-07',
+    '4',
+    '4GB',
+    'F:\Hyper-V\Virtual Machines\',
+    'F:\Hyper-V\Virtual Machines\carl-nix-07\Virtual Hard Disks\carl-nix-07.vhdx',
+    '15GB',
+    'E:\!_Apps\!_Linux\!_Ubuntu\ubuntu-23.10-live-server-amd64.iso',
+    'VM-TRUNK'
+)
+$job4 = Start-Job -ScriptBlock $scriptBlock -ArgumentList $argumentsJob4
+
+# Start the fifth job
+$argumentsJob5 = @(
+    ".\00-CreateHyperVVM.ps1",
+    'carl-nix-08',
+    '4',
+    '4GB',
+    'F:\Hyper-V\Virtual Machines\',
+    'F:\Hyper-V\Virtual Machines\carl-nix-08\Virtual Hard Disks\carl-nix-08.vhdx',
+    '15GB',
+    'E:\!_Apps\!_Linux\!_Ubuntu\ubuntu-23.10-live-server-amd64.iso',
+    'VM-TRUNK'
+)
+$job5 = Start-Job -ScriptBlock $scriptBlock -ArgumentList $argumentsJob5
 
 # Optionally, wait for the jobs to finish and retrieve their results
 Wait-Job $job1, $job2, $job3, $job4
