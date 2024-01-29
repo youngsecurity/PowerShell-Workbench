@@ -67,13 +67,16 @@ Add-VMHardDiskDrive -VMName $vmName -Path $vhdxPath
 # Set the VM to boot from the ISO
 Add-VMDvdDrive -VMName $vmName -ControllerNumber 0 -ControllerLocation 1 -Path $isoPath
 
+# Check that the DVD Drive was added to the VM
+Get-VM -Name $vmName | Select-Object Name, DVDDrives | Format-List *
+Get-VMDvdDrive -VMName $vmName | Select-Object Path
+
 # Check if the specified Virtual Switch exists
 $virtualSwitch = Get-VMSwitch -Name $virtualSwitchName -ErrorAction SilentlyContinue
 
 if ($virtualSwitch) {
     # If the Virtual Switch exists, connect the VM to the Virtual Switch
     Get-VMNetworkAdapter -VMName $vmName | Connect-VMNetworkAdapter -SwitchName $virtualSwitchName
-    #Add-VMNetworkAdapter -VMName $vmName -SwitchName $virtualSwitchName
     Write-Host "VM $vmName connected to the virtual switch $virtualSwitchName." -ForegroundColor Green
 } else {
     Write-Host "Virtual Switch $virtualSwitchName not found. VM $vmName will not be connected to a network." -ForegroundColor Yellow
