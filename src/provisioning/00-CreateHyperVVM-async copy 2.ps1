@@ -17,25 +17,11 @@
 .EXAMPLE
     .\00-CreateHyperVVM-async.ps1 <arguments>
 #>
-function Get-UserInput {
-    param (
-        [string]$prompt,
-        [int]$defaultValue
-    )
-    Write-Host "{$prompt}: " -NoNewline
-    $userResponse = Read-Host
-    if (-not $userResponse -or $userResponse -match '\D') { # Checks if input is not a number
-        return $defaultValue
-    }
-    return [int]$userResponse
-}
 
 $scriptPath = ".\00-CreateHyperVVM.ps1"
 $vmBaseName = "carl-nix-"
 $vmStartIndex = 4
-
-# Ask the user for the number of VMs to create
-$vmCount = Get-UserInput -prompt "Enter the number of Hyper-V VMs to create" -defaultValue 5
+$vmCount = 5
 
 $vmParams = for ($i = 0; $i -lt $vmCount; $i++) {
     @{
@@ -69,3 +55,5 @@ $results | ForEach-Object { Write-Output $_ }
 
 # Clean up
 $jobs | Remove-Job
+
+
