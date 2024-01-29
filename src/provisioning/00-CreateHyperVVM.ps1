@@ -65,7 +65,7 @@ New-VHD -Path $vhdxPath -SizeBytes 30GB -Dynamic
 Add-VMHardDiskDrive -VMName $vmName -Path $vhdxPath
 
 # Set the VM to boot from the ISO
-Get-VM $vmName | Add-VMDvdDrive -VMName $vmName -ControllerNumber 0 -ControllerLocation 1 -Path $isoPath
+Add-VMDvdDrive -VMName $vmName -ControllerNumber 0 -ControllerLocation 1 -Path $isoPath
 
 # Check if the specified Virtual Switch exists
 $virtualSwitch = Get-VMSwitch -Name $virtualSwitchName -ErrorAction SilentlyContinue

@@ -13,8 +13,29 @@
     .\00-RemoveHyperVVM.ps1
 #>
 
+# Function to get userInput with a prompt
+function Get-userInput {
+    param (
+        [string]$prompt,
+        [string]$defaultValue = ""
+    )
+    Write-Host ""$prompt": " -NoNewline
+    $userInput = Read-Host
+    if ([string]::IsNullOrWhiteSpace($userInput)) {
+        return $defaultValue
+    }
+    return $userInput
+}
+
+# Check command line arguments and prompt for missing information
+if ($args.Count -eq 1) {
+    $vmName = $args
+} else {
+    $vmName = Get-userInput -prompt "Enter the name of the Hyper-V VM to remove" -defaultValue "YourVMName"
+}
+
 # Ask the user for the VM name
-$vmName = Read-Host "Enter the name of the Hyper-V VM to remove"
+#$vmName = Read-Host "Enter the name of the Hyper-V VM to remove"
 
 # Check if the VM exists
 $vm = Get-VM -Name $vmName -ErrorAction SilentlyContinue
