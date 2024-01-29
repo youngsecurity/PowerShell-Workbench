@@ -93,7 +93,7 @@ if ($virtualSwitch) {
 }
 
 # Optional: Start the VM
-# Start-VM -Name $vmName
+Start-VM -Name $vmName
 
 # Output message
 Write-Host "VM $vmName created and configured successfully." -ForegroundColor Green
