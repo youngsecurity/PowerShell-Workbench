@@ -31,7 +31,7 @@ function Get-UserInput {
 }
 
 $scriptPath = ".\00-CreateHyperVVM.ps1"
-$vmBaseName = "carl-nix-"
+$vmBaseName = "carl-nix-0"
 $vmStartIndex = 4
 
 # Ask the user for the number of VMs to create
@@ -53,10 +53,12 @@ $vmParams = for ($i = 0; $i -lt $vmCount; $i++) {
 $jobs = @()
 
 foreach ($params in $vmParams) {
+    # Convert hashtable to a format suitable for passing as arguments
+    $argumentList = @($scriptPath, $params.vmName, $params.cpu, $params.memory, $params.vmDirectoryPath, $params.vhdxPath, $params.vhdxSize, $params.isoPath, $params.switchName)
     $job = Start-Job -ScriptBlock {
-        param($scriptPath, $params)
-        & $scriptPath @params
-    } -ArgumentList $scriptPath, $params
+        param([string]$scriptPath, [string]$vmName, [string]$cpu, [string]$memory, [string]$vmDirectoryPath, [string]$vhdxPath, [string]$vhdxSize, [string]$isoPath, [string]$switchName)
+        & $scriptPath $vmName $cpu $memory $vmDirectoryPath $vhdxPath $vhdxSize $isoPath $switchName
+    } -ArgumentList $argumentList
     $jobs += $job
 }
 
