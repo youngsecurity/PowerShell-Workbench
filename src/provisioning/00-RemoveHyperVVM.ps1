@@ -10,7 +10,7 @@
 .DESCRIPTION
     
 .EXAMPLE
-    .\00-RemoveHyperVVM.ps1
+    .\00-RemoveHyperVVM.ps1 <vmName>
 #>
 
 # Function to get userInput with a prompt
@@ -33,9 +33,6 @@ if ($args.Count -eq 1) {
 } else {
     $vmName = Get-userInput -prompt "Enter the name of the Hyper-V VM to remove" -defaultValue "YourVMName"
 }
-
-# Ask the user for the VM name
-#$vmName = Read-Host "Enter the name of the Hyper-V VM to remove"
 
 # Check if the VM exists
 $vm = Get-VM -Name $vmName -ErrorAction SilentlyContinue
