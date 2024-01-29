@@ -8,8 +8,8 @@
 .SYNOPSIS
     This script boilerplate will create resources async in Hyper-V on the local system.
 .DESCRIPTION
-    This async script calls the `00-CreateHyperVVM.ps1` script which requires eight arguments to be passed or defaults will be used.
-
+    This script asynchronously runs the `00-CreateHyperVVM.ps1` script which requires eight arguments to be passed or defaults will be used.
+    Arguments can be passed via CLI prompts, or by using the `$argumentJob#` array variables.
 .EXAMPLE
     .\00-CreateHyperVVM-async.ps1 <arguments>
 #>
