@@ -17,28 +17,29 @@
 # Load the necessary assembly for runspaces
 Add-Type -AssemblyName System.Management.Automation
 
-# Create and configure the first runspace
+# Define the base script path and ensure it's correct and accessible
+$scriptPath = "F:\GitHub\PowerShell-Workbench\src\provisioning\00-CreateHyperVVM.ps1" # Update to your actual script path
+
+# Define a generic script block for runspace execution
+$scriptBlock = {
+    param([string]$scriptPath, [string]$vmName, [string]$cpus, [string]$memory, [string]$vmPath, [string]$vhdxPath, [string]$vhdxSize, [string]$isoPath, [string]$switchName)
+    & PowerShell.exe -File $scriptPath $vmName $cpus $memory $vmPath $vhdxPath $vhdxSize $isoPath $switchName
+    Write-Output "VM creation script run for $vmName completed."
+}
+
+# Adjust these variables as needed for each VM
+$params1 = @($scriptPath, 'carl-nix-02', '4', '4GB', 'F:\Hyper-V\Virtual Machines\', 'F:\Hyper-V\Virtual Machines\carl-nix-02\Virtual Hard Disks\carl-nix-02.vhdx', '15GB', 'E:\!_Apps\!_Linux\!_Ubuntu\ubuntu-23.10-live-server-amd64.iso', 'VM-TRUNK')
+$params2 = @($scriptPath, 'carl-nix-03', '4', '4GB', 'F:\Hyper-V\Virtual Machines\', 'F:\Hyper-V\Virtual Machines\carl-nix-03\Virtual Hard Disks\carl-nix-03.vhdx', '15GB', 'E:\!_Apps\!_Linux\!_Ubuntu\ubuntu-23.10-live-server-amd64.iso', 'VM-TRUNK')
+
+# Create and configure the runspaces
 $Runspace1 = [runspacefactory]::CreateRunspace()
 $Runspace1.Open()
-$PowerShell1 = [powershell]::Create().AddScript({
-    # Your first script or command here    
-    .\00-CreateHyperVVM.ps1 'carl-nix-02' '4' '4GB' 'F:\Hyper-V\Virtual Machines\' 'F:\Hyper-V\Virtual Machines\carl-nix-02\Virtual Hard Disks\carl-nix-02.vhdx' '15GB' 'E:\!_Apps\!_Linux\!_Ubuntu\ubuntu-23.10-live-server-amd64.iso' 'VM-TRUNK'
-    Write-Output "Running runspace 1"
-    Start-Sleep -Seconds 5
-    Write-Output "Runspace 1 finished"
-})
+$PowerShell1 = [powershell]::Create().AddScript($scriptBlock).AddArgument($params1)
 $PowerShell1.Runspace = $Runspace1
 
-# Create and configure the second runspace
 $Runspace2 = [runspacefactory]::CreateRunspace()
 $Runspace2.Open()
-$PowerShell2 = [powershell]::Create().AddScript({
-    # Your second script or command here    
-    .\00-CreateHyperVVM.ps1 'carl-nix-03' '4' '4GB' 'F:\Hyper-V\Virtual Machines\' 'F:\Hyper-V\Virtual Machines\carl-nix-03\Virtual Hard Disks\carl-nix-03.vhdx' '15GB' 'E:\!_Apps\!_Linux\!_Ubuntu\ubuntu-23.10-live-server-amd64.iso' 'VM-TRUNK'
-    Write-Output "Running runspace 2"
-    Start-Sleep -Seconds 5
-    Write-Output "Runspace 2 finished"
-})
+$PowerShell2 = [powershell]::Create().AddScript($scriptBlock).AddArgument($params2)
 $PowerShell2.Runspace = $Runspace2
 
 # Start the runspaces asynchronously
