@@ -21,11 +21,27 @@ Add-Type -AssemblyName System.Management.Automation
 $scriptPath = "F:\GitHub\PowerShell-Workbench\src\provisioning\00-CreateHyperVVM.ps1" # Update to your actual script path
 
 # Define a generic script block for runspace execution
+# Define the script block
 $scriptBlock = {
-    param([string]$scriptPath, [string]$vmName, [string]$cpus, [string]$memory, [string]$vmPath, [string]$vhdxPath, [string]$vhdxSize, [string]$isoPath, [string]$switchName)
-    & PowerShell.exe -File $scriptPath $vmName $cpus $memory $vmPath $vhdxPath $vhdxSize $isoPath $switchName
-    Write-Output "VM creation script run for $vmName completed."
+    param(
+        [string]$scriptPath,
+        [string]$vmName,
+        [string]$cpuCount,
+        [string]$memorySize,
+        [string]$vmDirectoryPath,
+        [string]$vhdxPath,
+        [string]$vhdxSize,
+        [string]$isoPath,
+        [string]$switchName
+    )
+    & $scriptPath $vmName $cpuCount $memorySize $vmDirectoryPath $vhdxPath $vhdxSize $isoPath $switchName
 }
+
+# Specify the full path to your script if not running from the same directory
+$fullScriptPath = ".\00-CreateHyperVVM.ps1"
+
+# Execute the script block with the provided parameters
+& $scriptBlock $fullScriptPath 'carl-nix-02' '4' '4GB' 'F:\Hyper-V\Virtual Machines\' 'F:\Hyper-V\Virtual Machines\carl-nix-02\Virtual Hard Disks\carl-nix-02.vhdx' '15GB' 'E:\!_Apps\!_Linux\!_Ubuntu\ubuntu-23.10-live-server-amd64.iso' 'VM-TRUNK'
 
 # Adjust these variables as needed for each VM
 $params1 = @($scriptPath, 'carl-nix-02', '4', '4GB', 'F:\Hyper-V\Virtual Machines\', 'F:\Hyper-V\Virtual Machines\carl-nix-02\Virtual Hard Disks\carl-nix-02.vhdx', '15GB', 'E:\!_Apps\!_Linux\!_Ubuntu\ubuntu-23.10-live-server-amd64.iso', 'VM-TRUNK')
