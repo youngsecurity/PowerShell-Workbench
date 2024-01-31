@@ -1,4 +1,22 @@
-
+<#
+.NOTES
+    Script Name: Dir-Iterate.ps1
+    Author: Joseph Young <joe@youngsecurity.net>
+    Date: 1/31/2024
+    Copyright: (c) Young Security Inc.
+    Licensed under the MIT License.
+.SYNOPSIS
+    This script boilerplate will iterate through `Get-ChildItem -Directory`.
+.DESCRIPTION
+    This script can be used to iterate through a directory and manipulate any child directories.
+    By default this script gets the Directory path one of three ways:
+        - As an argument
+        - From the CLI prompt
+        - If no other argument is provided, a default value stored in the script is used for automation
+.EXAMPLE
+    .\Dir-Iterate.ps1 <arguments>
+    .\Dir-Iterate.ps1 "E:\"
+#>
 
 # Check if a command line argument was provided
 if ($args.Count -gt 0) {
