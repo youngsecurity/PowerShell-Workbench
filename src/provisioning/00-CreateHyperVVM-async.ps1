@@ -2,7 +2,7 @@
 .NOTES
     Script Name: 00-CreateHyperVVM-async.ps1
     Author: Joseph Young <joe@youngsecurity.net>
-    Date: 1/29/2024
+    Date: 1/31/2024
     Copyright: (c) Young Security Inc.
     Licensed under the MIT License.
 .SYNOPSIS
@@ -11,9 +11,7 @@
     This script asynchronously runs the `00-CreateHyperVVM.ps1` script which requires eight arguments to be passed or defaults will be used.
     Arguments can be passed two ways.
         1. CLI prompts
-        2. Using the `$argumentJob#` array variables for automation.
-    
-
+        2. Using the `$vmParams` array variables for automation.
 .EXAMPLE
     .\00-CreateHyperVVM-async.ps1 <arguments>
 #>
@@ -32,7 +30,7 @@ function Get-UserInput {
 
 $scriptPath = ".\00-CreateHyperVVM.ps1"
 $vmBaseName = "carl-nix-0"
-$vmStartIndex = 4
+$vmStartIndex = 1
 
 # Ask the user for the number of VMs to create
 $vmCount = Get-UserInput -prompt "Enter the number of Hyper-V VMs to create" -defaultValue 5
@@ -44,7 +42,7 @@ $vmParams = for ($i = 0; $i -lt $vmCount; $i++) {
         memory = '4GB'
         vmDirectoryPath = 'F:\Hyper-V\Virtual Machines\'
         vhdxPath = "F:\Hyper-V\Virtual Machines\$vmBaseName$($vmStartIndex + $i)\Virtual Hard Disks\$vmBaseName$($vmStartIndex + $i).vhdx"
-        vhdxSize = '15GB'
+        vhdxSize = '40GB'
         isoPath = 'E:\!_Apps\!_Linux\!_Ubuntu\ubuntu-23.10-live-server-amd64.iso'
         switchName = 'VM-TRUNK'
     }
