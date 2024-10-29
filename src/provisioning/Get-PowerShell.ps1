@@ -18,12 +18,17 @@
     On Windows, add the absolute destination path to the 'User' scope environment variable 'Path';
     On Linux, make the symlink '/usr/bin/pwsh' points to "$Destination/pwsh";
     On MacOS, make the symlink '/usr/local/bin/pwsh' points to "$Destination/pwsh".
+.Parameter UseMSI
+    Only works on Windows. Opens an interactive GUI
 .EXAMPLE
     Install the daily build
     .\Get-PowerShell.ps1 -Daily
 .EXAMPLE
+    Install using an interactive GUI
+    .\Get-PowerShell.ps1 -UseMSI
+.EXAMPLE
     Invoke this script directly from GitHub
-    Invoke-Expression "& { $(Invoke-RestMethod 'https://aka.ms/install-powershell.ps1') } -daily"
+    Invoke-Expression "& { $(Invoke-RestMethod 'https://github.com/youngsecurity/PowerShell-Workbench/blob/main/src/provisioning/Get-PowerShell.ps1') } -UseMSI"
 #>
 [CmdletBinding(DefaultParameterSetName = "Daily")]
 param(
