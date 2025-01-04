@@ -1,3 +1,7 @@
+# This PowerShell script writes a string from a series of variables. 
+# The output is expected to be used with generative AI content creation solutions.
+# The variables and output prompt I'm using here are for using Stable Diffusion.
+
 # Declare variables
 
 $who = "zero suit samus in the metroid spaceship hovercraft"  # Who is the main and/or supporting character(s)?

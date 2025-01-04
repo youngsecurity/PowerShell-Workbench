@@ -4,7 +4,11 @@ Testing network diagram content creation automation
 
 ## Background
 
-Network diagram creation automation 
+Network diagram content creation automation can bring significant benefits to organizations and professionals working on network design, maintenance, or troubleshooting. Benefits from increasing efficiency, accuracy, and collaboration to reducing costs and enabling better decision-making. It can significantly enhance the management and scalability of networks while ensuring compliance and improving troubleshooting capabilities.
+
+## Source
+
+[Kroki//Docs](https://docs.kroki.io/kroki/setup/use-docker-or-podman/)
 
 ```nwdiag {kroki=true}
 nwdiag {
