@@ -1,6 +1,8 @@
 # PowerShell Workbench Software Repository
 
-This is a software repository of PowerShell scripts I use for system automation. It is designed to make it easier for developers to automate software management and system configuration using PowerShell.
+This is a software repository of PowerShell scripts I use for various system automation tasks. PowerShell 7+ is cross platform and this makes it a great choice for people who prefer to work on the Windows platform and write code which runs cross platform, on Linux and macOS.
+
+It is designed to make it easier for developers to automate software management and system configuration using PowerShell. In 2018 I started working with an AI R&D lab, specifically NLP (natual language processing) services and systems infrastructure. Some PowerShell is used to There are use cases where I blend my systems and software architecture experience with cybersecurity to develop tools for the cybersecurity industry.
 
 ## Requirements
 

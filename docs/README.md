@@ -1,4 +1,4 @@
-# PowerShell-Workbench () <!-- omit from toc -->
+# PowerShell-Workbench <!-- omit from toc -->
 
 ## Table of Contents <!-- omit from toc -->
 
@@ -8,8 +8,8 @@
 
 ### Prerequisites
 
-- PsExec - [https://learn.microsoft.com/en-us/sysinternals/downloads/psexec]
-  - PsExec is required to enable WinRM and PSRemoting
+- Windows PowerShell v5.1 - Should be preinstalled with Windows 10+.
+- PsExec - [Download](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec) PsExec to enable WinRM and PSRemoting.
 
 ### Pre-Install PsExec Configuration
 
@@ -22,4 +22,4 @@ psexec -s \\$hostName Powershell -ExecutionPolicy Bypass -File \\$hostName\scrip
 
 #### PsExec
 
-[1] .
+[1] . Work in progress.
