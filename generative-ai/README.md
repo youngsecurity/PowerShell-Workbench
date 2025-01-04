@@ -9,3 +9,5 @@ I practice writing PowerShell by creating a script that performs as a prompt eng
 ## Use Cases
 
 Prompt engineering tools are necessary to aid the Prompt Engineer in rapidly developing and prototyping prompts for software engineering use cases.
+
+I have found that using generative AI to create access policies works very well. The model is given the exact variables to use and guardrails are used to ensure the model does not generate unexpected content.
