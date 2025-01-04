@@ -1,3 +1,8 @@
+# This script requires Administrative privileges to run.
+#
+# .\waf-block.ps1 -ExecutablePath "C:\path\to\your\program.exe" -RuleName "MyBlockRule" -DisplayName "My Blocked Executable"
+#
+
 param(
     [string]$ExecutablePath = "C:\path\to\your\program.exe",  # Default path to the executable
     [string]$RuleName = "BlockExecutableRule",               # Default rule name
