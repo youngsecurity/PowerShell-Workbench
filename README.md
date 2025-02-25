@@ -1,12 +1,12 @@
 # PowerShell Workbench Software Repository
 
-This is a software repository of PowerShell scripts I use for various system automation tasks. PowerShell 7+ is cross platform and this makes it a great choice for people who prefer to work on the Windows platform and write code which runs cross platform, on Linux and macOS.
+I use This software repository of PowerShell scripts for various system automation tasks. PowerShell 7+ is cross-platform, making it an excellent choice for people who prefer to work on the Windows platform and write code that runs cross-platform on Linux and macOS.
 
-It is designed to make it easier for developers to automate software management and system configuration using PowerShell. In 2018 I started working with an AI R&D lab, specifically NLP (natual language processing) services and systems infrastructure. Some PowerShell is used to There are use cases where I blend my systems and software architecture experience with cybersecurity to develop tools for the cybersecurity industry.
+It is designed to make it easier for developers to automate software management and system configuration using PowerShell.
 
 ## Requirements
 
-To use the PowerShell Workbench Software Repository, you will need to have PowerShell 7 or higher.
+To use the PowerShell Workbench Software Repository, you must have PowerShell 7 or higher.
 
 To perform some remote code execution tasks, I recommend "PSExec64.exe".
 
@@ -18,11 +18,11 @@ For example, to check your local system for Python and install the latest versio
 
 ## Disclaimer
 
-The scripts contained in this repository are what I use every day to configure systems. They should all work and be free from errors, but if you experience errors, please submit an issue and I can help you resolve it.
+The scripts contained in this repository are what I use every day to configure systems. They should all work and be free from errors, but if you experience errors, please submit an issue, and I will help you resolve it.
 
-I develop these scripts for my own personal use. Scripts may opinionated and specific to my environment and may require modification to work. I work to generalize as much as possible, or prompt the end-user for information at the command line.
+I develop these scripts for my personal use. Scripts may opinionated and specific to my environment and may require modification to work. I work to generalize as much as possible or prompt the end-user for information at the command line.
 
-All code is considered a work-in-progress.
+All code is considered a work in progress.
 
 ## Contributing
 
@@ -37,4 +37,4 @@ When adding your tool or script to the repository, please include a README.md fi
 
 ## License
 
-All tools in the PowerShell Workbench Software Repository are released under the MIT License.
+All PowerShell Workbench Software Repository tools are released under the MIT License.
